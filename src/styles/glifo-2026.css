@@ -372,3 +372,86 @@
 @media(prefers-reduced-motion:reduce){
   .editorial-home .editorial-opening .hero-nebula{transform:none!important}
 }
+
+
+/* Documento da Glifo: não contamina identidades dos demais projetos. */
+.identity-glifo{
+  --board-surface:var(--glifo-ink);
+  --board-paper:var(--glifo-lunar);
+  --board-muted:var(--glifo-silver);
+  --board-line:color-mix(in srgb,var(--glifo-silver) 24%,transparent);
+  --board-accent:var(--glifo-brass);
+}
+.identity-glifo .identity-cover-art::before{
+  border:0;
+  border-radius:0;
+  transform:none;
+  inset:auto 4% 0 auto;
+  width:48%;
+  aspect-ratio:320/225;
+  background:url('/brand/2026/limiar-canto.svg') center/contain no-repeat;
+  opacity:.19;
+}
+.identity-glifo .identity-mark,
+.identity-glifo .identity-image-trigger{
+  border-color:var(--board-line);
+}
+.identity-glifo .identity-color button span{
+  background:var(--glifo-ink);
+  color:var(--glifo-lunar);
+  border-color:var(--glifo-silver);
+}
+.identity-glifo .glyph-officio{
+  background:color-mix(in srgb,var(--glifo-ink) 80%,var(--glifo-petroleo));
+  border-color:var(--board-line);
+  padding:clamp(18px,3vw,40px);
+}
+.identity-glifo .glyph-officio-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(8px,2vw,24px);
+  margin-bottom:23px;
+}
+.identity-glifo .glyph-officio-grid figure{
+  min-width:0;
+  margin:0;
+  background:var(--glifo-lunar);
+  color:var(--glifo-ink);
+  padding:22px 12px 17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:9px;
+}
+.identity-glifo .glyph-officio-grid img{
+  display:block;
+  width:min(100%,118px);
+  aspect-ratio:1;
+  object-fit:contain;
+}
+.identity-glifo .glyph-officio-grid figcaption{
+  padding:0;
+  font:600 11px/1.5 var(--sans);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.identity-glifo .glyph-officio>p{
+  color:var(--glifo-silver);
+  text-align:left;
+  max-width:55ch;
+  font-size:12px;
+  line-height:1.75;
+}
+.identity-glifo .identity-material-grid>figure:first-child .identity-material{
+  background:var(--glifo-lunar);
+}
+.identity-glifo .identity-material-grid>figure:nth-child(2) .identity-material{
+  background:var(--glifo-ink);
+}
+@media(max-width:760px){
+  .identity-glifo .glyph-officio-grid{gap:7px}
+  .identity-glifo .glyph-officio-grid figure{padding:13px 6px 11px}
+  .identity-glifo .glyph-officio-grid figcaption{font-size:9px;letter-spacing:0}
+  .identity-glifo .glyph-officio-grid img{width:min(100%,86px)}
+}
