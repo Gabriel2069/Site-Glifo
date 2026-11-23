@@ -2,31 +2,37 @@
 import Motto from '../components/Motto.astro';
 import Icon from '../components/Icon.astro';
 import Base from '../layouts/Base.astro';
-import Constellation from '../components/Constellation.astro';
-import GlyphFormation from '../components/GlyphFormation.astro';
+
+
 import Services from '../components/Services.astro';
 import BrandDocuments from '../components/BrandDocuments.astro';
 import WorkCollection from '../components/WorkCollection.astro';
 import Process from '../components/Process.astro';
+import Constellation from '../components/Constellation.astro';
+import GlyphFormation from '../components/GlyphFormation.astro';
 import {site, myth} from '../data/site';
 
 ---
 <Base bodyClass="editorial-home">
 <nav class="chapter-rail" aria-label="Percurso da página"><a href="#trabalhos" aria-label="Trabalhos"><span>01</span></a><a href="#glifo" aria-label="A Glifo"><span>02</span></a><a href="#servicos" aria-label="Serviços"><span>03</span></a><a href="#contato" aria-label="Contato"><span>04</span></a></nav>
-<section class="hero editorial-opening" aria-labelledby="hero-title">
- <div class="hero-nebula" aria-hidden="true"></div><canvas class="sky" data-sky aria-hidden="true"></canvas>
- <div class="hero-inner wrap">
-  <div class="hero-copy"><p class="eyebrow">GLIFO / ESTÚDIO DE GABRIEL TADEU</p><h1 id="hero-title"><span class="hero-title-lead">O sentido</span><span class="hero-title-tail">de um traço.</span></h1></div>
-  <Constellation/>
-  <div class="hero-definition"><span>GLI·FO <small>substantivo</small></span><p>Uma forma que guarda<br/>algo a dizer.</p></div>
-  <div class="hero-description"><p>Identidades, sites e publicações. Ideias que encontram uma forma de chegar a alguém.</p><a class="hero-service-link" href="#servicos">Conhecer os serviços <Icon name="arrow"/></a></div>
-  <div class="hero-entry"><a class="line-link" href="#trabalhos"><span>Entrar no firmamento</span><Icon name="down"/></a><a class="hero-document-link" href="#identidades">Documentos de marca <Icon name="arrow"/></a></div>
+<section class="studio-opening" aria-labelledby="hero-title">
+ <div class="studio-opening-inner wrap">
+  <div class="studio-intro"><p class="eyebrow">Glifo · Estúdio de Gabriel Tadeu</p>
+   <h1 id="hero-title">O sentido<br/><em class="hero-title-tail">de um traço.</em></h1>
+   <p>Identidades visuais, sites e publicações. Desenho para quem tem algo a dizer.</p>
+   <div class="studio-entry hero-entry"><a class="line-link" href="#trabalhos">Ver os trabalhos <Icon name="down"/></a></div>
+  </div>
+  <figure class="studio-specimen"><img src="/brand/oficio/perfil-do-vigia.webp" alt="Perfil do grifo, com as plumas e o bico desenhados em camadas de tinta." width="904" height="920" fetchpriority="high"/>
+  <figcaption><span>Bestiário da Glifo</span><span>Perfil do Vigia</span></figcaption></figure>
  </div>
- <div class="hero-bottom wrap"><span>IDEIA · FORMA · PRESENÇA</span><span>DESENHO QUE PARTICIPA DA MENSAGEM</span><span>GOIÂNIA / BRASIL</span></div>
 </section>
 <WorkCollection/>
-<section class="invocation wrap editorial-passage"><p class="eyebrow">PRÓLOGO / O PRIMEIRO TRAÇO</p><p class="invocation-line" data-reading-prose>Um traço fica depois que a mão se afasta. Quem o encontra pode reconhecer uma letra, um nome, uma ideia. A Glifo nasce desse encontro entre o desenho e quem o lê.</p><div class="invocation-rule signal-passage" aria-hidden="true"><svg viewBox="0 0 1200 180" preserveAspectRatio="none"><path d="M0 105Q200 15 400 90T800 90T1200 75"/><circle cx="400" cy="90" r="4"/><circle cx="800" cy="90" r="4"/></svg><span>Ideia.</span><span>Forma.</span><span>Presença.</span></div></section><section class="myth myth-theatre" id="glifo" aria-labelledby="myth-title"><div class="myth-stage" data-myth-stage data-phase="0"><img class="myth-landscape" src="/images/celestial-archive.webp" alt="" width="1536" height="1024" loading="lazy"/><div class="myth-vignette"></div><GlyphFormation/><div class="myth-stage-label"><span>GLIFO / UMA LEITURA DO CÉU</span><span data-myth-index>I / OS SINAIS</span></div><span class="myth-stage-rune">✦</span></div><div class="myth-narrative wrap"><header class="myth-title-block"><p class="eyebrow">Sobre glifos, figuras e constelações</p><h2 id="myth-title">O que um sinal<br/><em>permite dizer.</em></h2><p>O céu fornece uma imagem para a marca: pontos que, vistos em relação, passam a formar algo legível. Cada constelação pode ser um glifo.</p></header>{myth.map((chapter,i)=><article class="myth-chapter" data-myth-chapter data-myth-note={chapter.note}><p class="eyebrow">{chapter.note}</p><h3>{chapter.title}</h3><div class="myth-prose">{chapter.text.split("\n\n").map(paragraph=><p class="reading-prose" data-reading-prose>{paragraph}</p>)}</div><span class="chapter-sign" aria-hidden="true">{i===0?'·':i===1?'✦':'✧'}</span></article>)}</div></section>
+<section class="studio-language invocation" id="glifo" aria-labelledby="language-title"><div class="wrap">
+ <header><p class="eyebrow">A Glifo</p><h2 id="language-title">Um ofício<br/><em>feito de sinais.</em></h2><p>Um glifo pode ser uma letra, uma marca, um gesto desenhado. No estúdio, esses sinais acompanham o trabalho desde a primeira conversa até a entrega.</p><a class="quiet-link" href="/identidades/glifo/">Abrir o caderno da marca <Icon name="arrow"/></a></header>
+ <div class="hero studio-observatory"><Constellation compact/></div>
+</div></section>
+<section class="myth myth-theatre" id="origem" aria-labelledby="myth-title"><div class="myth-stage" data-myth-stage data-phase="0"><div class="myth-landscape oficio-surface" aria-hidden="true"></div><div class="myth-vignette"></div><GlyphFormation/><div class="myth-stage-label"><span>GLIFO / UMA LEITURA DO CÉU</span><span data-myth-index>I / OS SINAIS</span></div></div><div class="myth-narrative wrap"><header class="myth-title-block"><p class="eyebrow">Sobre glifos, figuras e constelações</p><h2 id="myth-title">O que um sinal<br/><em>permite dizer.</em></h2><p>O céu fornece uma imagem para a marca: pontos que, vistos em relação, passam a formar algo legível. Cada constelação pode ser um glifo.</p></header>{myth.map((chapter,i)=><article class="myth-chapter" data-myth-chapter data-myth-note={chapter.note}><p class="eyebrow">{chapter.note}</p><h3>{chapter.title}</h3><div class="myth-prose">{chapter.text.split("\n\n").map(paragraph=><p class="reading-prose" data-reading-prose>{paragraph}</p>)}</div><span class="chapter-sign" aria-hidden="true">{i===0?'·':i===1?'✦':'✧'}</span></article>)}</div></section>
 <Services/><BrandDocuments/><Process/>
-<section class="author section wrap" id="autor"><p class="eyebrow">06 / Quem constrói</p><div class="author-grid"><h2>Quem desenha<br/><em>este céu.</em></h2><div><p class="big-copy">Sou Gabriel Tadeu. A Glifo é o espaço onde reúno meu trabalho com identidade, sites, documentos e comunicação.</p><p>Meu trabalho começa tentando entender o que você quer dizer, para quem e em que circunstância. Uma identidade precisa sobreviver ao tamanho de um ícone; um documento precisa conduzir uma leitura longa; um site precisa responder a quem o percorre. Cada formato pede decisões próprias.</p><p>Na Glifo, reúno essas frentes em projetos com escopo combinado e espaço para cuidar da execução. Acompanhamentos contínuos são conversados à parte. Esta vitrine é uma das entregas: você pode examinar o desenho, percorrer as páginas e perceber o trabalho acontecendo na própria experiência.</p><a class="quiet-link" href="/trabalhos/glifo/#presenca">O site como projeto <Icon name="arrow"/></a></div></div></section>
-<section class="contact-section" id="contato"><div class="wrap"><p class="eyebrow">Uma mensagem ainda por escrever</p><h2><Motto/></h2><p>Um nome a desenhar, um site a construir, um conteúdo que precisa ser organizado. Conte onde sua ideia está agora.</p><a class="glifo-action contact-whatsapp" href={site.contact.whatsapp} target="_blank" rel="noopener noreferrer"><span><small>Vamos conversar</small>Conte sua ideia a Tadeu</span><span class="action-arrow"><Icon name="arrow"/></span></a><p class="contact-phone">(62) 98301-0176</p><button class="quiet-button" data-open-idea type="button">Preparar minha ideia <Icon name="arrow"/></button></div><span class="contact-star" aria-hidden="true">✦</span></section>
+<section class="author section wrap" id="autor"><p class="eyebrow">06 / Quem constrói</p><div class="author-grid"><h2>Quem está<br/><em>no estúdio.</em></h2><div><p class="big-copy">Sou Gabriel Tadeu. A Glifo é o espaço onde reúno meu trabalho com identidade, sites, documentos e comunicação.</p><p>Meu trabalho começa tentando entender o que você quer dizer, para quem e em que circunstância. Uma identidade precisa sobreviver ao tamanho de um ícone; um documento precisa conduzir uma leitura longa; um site precisa responder a quem o percorre. Cada formato pede decisões próprias.</p><p>Na Glifo, reúno essas frentes em projetos com escopo combinado e espaço para cuidar da execução. Acompanhamentos contínuos são conversados à parte. Esta vitrine é uma das entregas: você pode examinar o desenho, percorrer as páginas e perceber o trabalho acontecendo na própria experiência.</p><a class="quiet-link" href="/trabalhos/glifo/#presenca">O site como projeto <Icon name="arrow"/></a></div></div></section>
+<section class="contact-section" id="contato"><div class="wrap"><p class="eyebrow">Uma mensagem ainda por escrever</p><h2><Motto/></h2><p>Um nome a desenhar, um site a construir, um conteúdo que precisa ser organizado. Conte onde sua ideia está agora.</p><a class="glifo-action contact-whatsapp" href={site.contact.whatsapp} target="_blank" rel="noopener noreferrer"><span><small>Vamos conversar</small>Conte sua ideia a Tadeu</span><span class="action-arrow"><Icon name="arrow"/></span></a><p class="contact-phone">(62) 98301-0176</p><button class="quiet-button" data-open-idea type="button">Preparar minha ideia <Icon name="arrow"/></button></div></section>
 </Base>

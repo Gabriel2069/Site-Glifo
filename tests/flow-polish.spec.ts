@@ -21,7 +21,7 @@ test('legacy manual pause is ignored and changes to the system setting work both
  await page.goto('/');await expect(page.locator('html')).not.toHaveClass(/motion-paused/);
  await expect(page.locator('[data-motion]')).toHaveCount(0);await expect(page.getByRole('button',{name:/Pausar|Retomar alternância|Ativar animações/})).toHaveCount(0);
  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).toHaveClass(/motion-paused/);await expect(page.locator('.hero [data-griff]')).toHaveAttribute('data-auto-state','paused');
- await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).not.toHaveClass(/motion-paused/);await expect(page.locator('.hero [data-griff]')).toHaveAttribute('data-auto-state','running');
+ await page.locator('.studio-observatory').scrollIntoViewIfNeeded();await page.mouse.move(0,0);await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).not.toHaveClass(/motion-paused/);await expect(page.locator('.hero [data-griff]')).toHaveAttribute('data-auto-state','running');
 });
 
 test('all process stages remain readable when scripts are unavailable',async({browser})=>{
