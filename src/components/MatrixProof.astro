@@ -1,0 +1,66 @@
+---
+import Icon from './Icon.astro';
+---
+<button type="button" class="matriz-examinar" data-matriz-abrir aria-haspopup="dialog"><span aria-hidden="true"><Icon name="plus"/></span> Examinar o relevo</button>
+<dialog class="matriz-dialogo" aria-labelledby="matriz-titulo">
+ <div class="matriz-painel">
+  <header><div><p class="eyebrow">Bestiário da Glifo</p><h2 id="matriz-titulo">Perfil do Vigia</h2></div><button type="button" class="matriz-fechar" aria-label="Fechar matriz" autofocus><Icon name="close"/></button></header>
+  <div class="matriz-arte"><img src="/brand/oficio/relevo-vigia.webp" width="570" height="690" alt="Perfil do grifo gravado, com as penas em camadas ao redor do olho e do bico." loading="lazy"/><canvas aria-hidden="true" width="570" height="690"></canvas></div>
+  <footer><label for="matriz-luz">Direção da luz</label><input id="matriz-luz" type="range" min="-90" max="90" value="-32" step="1"/><output for="matriz-luz">−32°</output></footer>
+ </div>
+</dialog>
+<script>
+ const modal=document.querySelector<HTMLDialogElement>('.matriz-dialogo');
+ const openButton=document.querySelector<HTMLButtonElement>('[data-matriz-abrir]');
+ if(modal && openButton){
+  const image=modal.querySelector('img')!;
+  const canvas=modal.querySelector('canvas')!;
+  const input=modal.querySelector('input')!;
+  const output=modal.querySelector('output')!;
+  const ctx=canvas.getContext('2d',{willReadFrequently:true});
+  let relief:Uint8ClampedArray|undefined;
+  let surface:ImageData|undefined;
+  let pending=0;
+  function light(){
+   pending=0;
+   if(!ctx||!surface||!relief||!modal?.open)return;
+   const angle=Number(input.value)*Math.PI/180;
+   const x=Math.sin(angle)*4.4,y=-Math.cos(angle)*4.4,w=canvas.width;
+   const pixels=surface.data;
+   for(let i=0;i<relief.length;i++){
+    const h=relief[i];
+    const slope=x*((relief[i+1]??h)-h)+y*((relief[i+w]??h)-h);
+    const spot=Math.max(0,1-Math.abs(i%w/w-.48-Math.sin(angle)*.35)*2.5);
+    const glint=39+spot*33+h*.46+Math.max(-35,Math.min(94,slope));
+    pixels[i*4]=glint*1.18+13;pixels[i*4+1]=glint*1.03+9;pixels[i*4+2]=glint*.78+8;
+   }
+   ctx.putImageData(surface,0,0);canvas.style.opacity='1';
+  }
+  function adjust(){
+   output.value=input.value+'°';
+   if(!pending)pending=requestAnimationFrame(light);
+  }
+  openButton.addEventListener('click',async()=>{
+   modal.showModal();
+   if(!surface && ctx){
+    try{
+     await image.decode();ctx.drawImage(image,0,0,canvas.width,canvas.height);
+     surface=ctx.getImageData(0,0,canvas.width,canvas.height);
+     relief=new Uint8ClampedArray(canvas.width*canvas.height);
+     for(let i=0;i<relief.length;i++)relief[i]=surface.data[i*4];
+    }catch{return}
+   }
+   adjust();
+  });
+  const stage=modal.querySelector<HTMLElement>('.matriz-arte')!;
+  stage.addEventListener('pointermove',e=>{
+   if(e.pointerType!=='mouse'||e.buttons)return;
+   const r=stage.getBoundingClientRect();
+   input.value=String(Math.round((e.clientX-r.left)/r.width*180-90));adjust();
+  });
+  input.addEventListener('input',adjust);
+  modal.querySelector('button')!.addEventListener('click',()=>modal.close());
+  modal.addEventListener('click',e=>{if(e.target===modal)modal.close()});
+  modal.addEventListener('close',()=>{cancelAnimationFrame(pending);pending=0;openButton.focus({preventScroll:true})});
+ }
+</script>

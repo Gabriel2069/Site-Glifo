@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('project discovery keeps playing over copy and switches at the new pace',async({page})=>{
- await page.goto('/');const section=page.locator('.work-collection');await section.locator('.section-description').scrollIntoViewIfNeeded();await section.locator('.section-description').hover();await expect(section).toHaveAttribute('data-auto-state','running');await expect(section.locator('[data-project-tab][aria-selected="true"]')).toHaveAttribute('id','project-tab-delfas-corpore',{timeout:8500});await section.getByRole('tab',{name:/Tadeon Nexus/}).click();await expect(section).toHaveAttribute('data-auto-state','paused');await expect(section.locator('.collection-panel:not([hidden])')).toHaveCount(1);await page.emulateMedia({reducedMotion:'reduce'});expect(await section.locator('.collection-panel:not([hidden]) .project-art').evaluate(e=>getComputedStyle(e).transform)).toBe('none');
+ await page.goto('/');const section=page.locator('.work-collection');await section.locator('.section-description').scrollIntoViewIfNeeded();await section.locator('.section-description').hover();await expect(section).toHaveAttribute('data-auto-state','running');await expect(section.locator('[data-project-tab][aria-selected="true"]')).toHaveAttribute('id','project-tab-delfas-corpore',{timeout:8500});await section.getByRole('tab',{name:/Tadeon Nexus/}).click();await expect(section).toHaveAttribute('data-auto-state','paused');await expect(section.locator('.collection-panel:not([hidden])')).toHaveCount(1);await page.emulateMedia({reducedMotion:'reduce'});expect(await section.locator('.collection-panel:not([hidden]) .vitrine-pecas').evaluate(e=>getComputedStyle(e).transform)).toBe('none');
 });
 test('system preference disables document entrance motion and remains on navigation',async({page})=>{
  await page.goto('/');await page.emulateMedia({reducedMotion:'reduce'});await page.goto('/trabalhos/christiano-tadeu/');await page.getByRole('link',{name:/Ver a identidade visual/}).click();await expect(page.locator('html')).toHaveClass(/motion-paused/);expect(await page.locator('[data-identity-document]').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
@@ -19,9 +19,9 @@ test('automatic discovery rests briefly then resumes with the selected control s
 test('legacy manual pause is ignored and changes to the system setting work both ways',async({page})=>{
  await page.addInitScript(()=>localStorage.setItem('glifo:motion','paused'));
  await page.goto('/');await expect(page.locator('html')).not.toHaveClass(/motion-paused/);
- await expect(page.locator('[data-motion]')).toHaveCount(0);await expect(page.getByRole('button',{name:/Pausar|Retomar alternância|Ativar animações/})).toHaveCount(0);
+ await expect(page.locator('[data-motion]')).toHaveCount(0);await expect(page.getByRole('button',{name:/Pausar alternância|Retomar alternância|Ativar animações/})).toHaveCount(0);
  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).toHaveClass(/motion-paused/);await expect(page.locator('.hero [data-griff]')).toHaveAttribute('data-auto-state','paused');
- await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).not.toHaveClass(/motion-paused/);await expect(page.locator('.hero [data-griff]')).toHaveAttribute('data-auto-state','running');
+ await page.locator('.studio-observatory').scrollIntoViewIfNeeded();await page.mouse.move(0,0);await page.emulateMedia({reducedMotion:'no-preference'});await expect(page.locator('html')).not.toHaveClass(/motion-paused/);await expect(page.locator('.hero [data-griff]')).toHaveAttribute('data-auto-state','running');
 });
 
 test('all process stages remain readable when scripts are unavailable',async({browser})=>{
