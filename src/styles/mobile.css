@@ -33,7 +33,7 @@
  .mobile-shelf-navigation{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px;font:11px/1.5 var(--sans);color:var(--muted)}
  .mobile-shelf-navigation small{display:block;margin-top:5px;color:var(--lavender);font-size:10px;font-variant-numeric:tabular-nums}
  .mobile-shelf-navigation>div{display:flex;gap:8px}
- .mobile-shelf-navigation button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);background:#7042b319;color:var(--light)}
+ .mobile-shelf-navigation button{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);background:#351F5319;color:var(--light)}
  .mobile-shelf-navigation button:disabled{opacity:.3;cursor:default}
  .mobile-shelf{display:flex;align-items:stretch;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--page-gutter);overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--lavender) transparent;margin-inline:calc(-1 * var(--page-gutter));padding:3px var(--page-gutter) 22px}
  .mobile-shelf>*{flex:0 0 88%;min-width:0;scroll-snap-align:start;scroll-snap-stop:normal}
@@ -53,7 +53,7 @@
  .collection-tabs button{flex-basis:164px;min-height:92px;padding:16px 12px;border:1px solid var(--line);grid-template-columns:18px minmax(0,1fr);gap:8px}
  .collection-tabs strong{font-size:23px}
  .collection-tabs small{line-height:1.6;font-size:9px}
- .collection-tabs button[aria-selected=true]{border-color:#b28cff77;background:#7042b31c}
+ .collection-tabs button[aria-selected=true]{border-color:#C4AA7877;background:#351F531c}
  .collection-panel>a{display:block;touch-action:pan-y}
  .collection-panel .project-art{height:clamp(260px,80vw,350px)}
  .visual-provenance{font-size:11px;line-height:1.8}

@@ -14,7 +14,7 @@
 .service-accordion details[open] .service-toggle .vector-icon{transform:rotate(45deg)}
 .service-accordion details[open] .service-name{color:var(--light)}
 .service-accordion details[open] .service-number{color:var(--lavender)}
-.service-accordion details[open] .service-toggle{background:#7042b32b;border-color:#b28cff88}
+.service-accordion details[open] .service-toggle{background:#351F532b;border-color:#C4AA7888}
 .service-accordion summary:hover .service-name{color:var(--lavender)}
 .service-accordion summary:hover .service-toggle{border-color:var(--lavender)}
 .service-detail-inner{padding:0 0 25px 42px}
@@ -41,7 +41,7 @@
 .services-ready .service-register{padding-bottom:10px}
 .services-ready .service-example{position:absolute;right:0;top:0;width:44%;margin:0}
 .services-ready .service-example-art{height:390px}
-.services-ready .service-standby{display:flex;position:absolute;right:0;top:0;width:44%;height:580px;align-items:center;justify-content:center;flex-direction:column;gap:20px;border:1px solid var(--line);background:radial-gradient(ellipse at center,#7042b31a,transparent 70%),var(--deep);z-index:-1}
+.services-ready .service-standby{display:flex;position:absolute;right:0;top:0;width:44%;height:580px;align-items:center;justify-content:center;flex-direction:column;gap:20px;border:1px solid var(--line);background:radial-gradient(ellipse at center,#351F531a,transparent 70%),var(--deep);z-index:-1}
 .service-standby img{width:45%;height:250px;object-fit:contain;opacity:.12}
 .service-standby span{font:8px var(--sans);letter-spacing:.2em;color:var(--gray)}
 .services-ready details:not(.is-current) .service-example{visibility:hidden}
