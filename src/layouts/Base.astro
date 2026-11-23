@@ -39,7 +39,7 @@ const {title = 'Glifo · Ideias que encontram forma', description = site.descrip
 {!minimal&&<footer class="site-footer wrap">
  <div class="footer-print">
   <a href="/" aria-label="Glifo, voltar ao início"><img class="footer-logotype" src="/brand/oficio/assinatura-glifo-lunar.svg" alt="Glifo" width="1394" height="1128" loading="lazy"/></a>
-  <p>{site.motto}.</p>
+  <p class="lema-rodape">{site.motto.split('. ').map(sentence=><span>{sentence}.</span>)}</p>
   <img class="footer-cut" src="/brand/oficio/barbas-de-prata.webp" alt="" width="750" height="940" loading="lazy"/>
  </div>
  <nav aria-label="Explorar a Glifo"><h2>Explorar</h2><a href="/trabalhos/">Trabalhos</a><a href="/identidades/">Documentos de marca</a><a href="/#servicos">Serviços</a><a href="/#processo">O processo</a><a href="/#autor">Quem faz</a></nav>

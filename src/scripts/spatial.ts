@@ -25,7 +25,7 @@ export function initSpatial({isPaused,refresh}:SpatialOptions){
   document.addEventListener('visibilitychange',()=>{if(document.hidden)settle();});
  });
  // One finite lighting entrance per chapter; text itself is never split or dimmed.
- const accents=document.querySelectorAll<HTMLElement>('.myth-theatre,.project-cosmos,.archive-section,.contact-section');
+ const accents=document.querySelectorAll<HTMLElement>('.project-cosmos,.archive-section,.contact-section');
  const lights:gsap.core.Tween[]=[];
  accents.forEach(section=>{
   const light=document.createElement('span');light.className='chapter-light';light.setAttribute('aria-hidden','true');section.prepend(light);

@@ -27,9 +27,9 @@ test('brand document opens over the portfolio and closes after image viewer',asy
  await expect(frame.getByRole('dialog',{name:'Imagem da identidade ampliada'})).not.toBeVisible();await expect(dialog).toBeVisible();await page.keyboard.press('Escape');await expect(dialog).not.toBeVisible();await expect(opener).toBeFocused();
 });
 test('narrative reveals whole paragraphs with distinct heading typography',async({page})=>{
- await page.goto('/');await expect(page.locator('.myth-prose')).toHaveCount(3);await expect(page.locator('.myth-prose p')).toHaveCount(6);await expect(page.locator('.reading-word')).toHaveCount(0);
- await page.locator('.myth-chapter').first().scrollIntoViewIfNeeded();
- const typography=await page.locator('.myth-chapter').first().evaluate(el=>({heading:getComputedStyle(el.querySelector('h3')!).fontFamily,body:getComputedStyle(el.querySelector('p.reading-prose')!).fontFamily}));expect(typography.heading).not.toBe(typography.body);
+ await page.goto('/');await expect(page.locator('.ensaio-prosa')).toHaveCount(3);await expect(page.locator('.ensaio-prosa p')).toHaveCount(6);await expect(page.locator('.reading-word')).toHaveCount(0);
+ await page.locator('.ensaio-capitulo').first().scrollIntoViewIfNeeded();
+ const typography=await page.locator('.ensaio-capitulo').first().evaluate(el=>({heading:getComputedStyle(el.querySelector('h3')!).fontFamily,body:getComputedStyle(el.querySelector('[data-reading-prose]')!).fontFamily}));expect(typography.heading).not.toBe(typography.body);
  await page.emulateMedia({reducedMotion:'reduce'});await expect.poll(()=>page.locator('[data-reading-prose]').evaluateAll(nodes=>nodes.every(n=>Number(getComputedStyle(n).opacity)>.99)),{message:'Reduced-motion media change settles every reading paragraph'}).toBe(true);
 });
 test('identity directory opens each board and its real materials',async({page})=>{
@@ -84,7 +84,7 @@ test('archive can be dragged without triggering its chapter links',async({page})
  await page.goto('/trabalhos/glifo/');const track=page.locator('[data-archive-track]');await track.scrollIntoViewIfNeeded();const box=await track.boundingBox();if(!box)throw Error('Missing archive');const x=Math.min(box.width-30,box.width*.8),y=box.y+170;await page.mouse.move(x,y);await page.mouse.down();await page.mouse.move(x-240,y,{steps:12});await page.mouse.up();await expect.poll(()=>track.evaluate(el=>el.scrollLeft)).toBeGreaterThan(100);await expect(page).toHaveURL(/\/trabalhos\/glifo\/$/);
 });
 test('myth and archive remain readable when scripts are disabled',async({browser})=>{
- const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const page=await context.newPage();await page.goto('/');await expect(page.locator('.myth-chapter')).toHaveCount(3);await expect(page.getByRole('heading',{name:'A mensagem toma forma'})).toBeVisible();await page.goto('/trabalhos/glifo/');await expect(page.locator('.archive-sheet')).toHaveCount(4);await expect(page.locator('.archive-sheet').first().getByRole('link')).toHaveAttribute('href','/trabalhos/glifo/#identidade');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await context.close();
+ const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});const page=await context.newPage();await page.goto('/');await expect(page.locator('.ensaio-capitulo')).toHaveCount(3);await expect(page.getByRole('heading',{name:'A mensagem toma forma'})).toBeVisible();await page.goto('/trabalhos/glifo/');await expect(page.locator('.archive-sheet')).toHaveCount(4);await expect(page.locator('.archive-sheet').first().getByRole('link')).toHaveAttribute('href','/trabalhos/glifo/#identidade');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await context.close();
 });
 test('system reduced motion restores whole prose and remains effective in the atelier',async({page})=>{
  await page.goto('/');await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('body')).toHaveClass(/motion-paused/);

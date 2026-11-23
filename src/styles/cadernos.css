@@ -109,3 +109,6 @@
 @media(max-width:760px){
  .identity-directory .identity-index-item>.indice-dupla {height:clamp(200px,58vw,350px)}
 }
+
+.site-footer .lema-rodape {display:grid;gap:.38em;max-width:19ch;text-wrap:balance}
+.site-footer .lema-rodape span:last-child {font-size:.76em;line-height:1.08}

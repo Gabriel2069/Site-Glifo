@@ -215,9 +215,6 @@ media.add('(prefers-reduced-motion: no-preference)',()=>{
  const dial=document.querySelector('.hero .orbit-b');
  if(dial)loops.push(gsap.to(dial,{rotation:360,duration:180,repeat:-1,ease:'none'}));
  }
- const myth=document.querySelector<SVGPathElement>('.myth-constellation');
- if(myth){const length=myth.getTotalLength();gsap.fromTo(myth,{strokeDasharray:length,strokeDashoffset:length},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'.myth',start:'top 80%',end:'center 50%',scrub:1}});}
-
  const atlasPath=document.querySelector<SVGPathElement>('.atlas-map path');
  if(atlasPath){const length=atlasPath.getTotalLength();gsap.fromTo(atlasPath,{strokeDasharray:length,strokeDashoffset:length},{strokeDashoffset:0,duration:2,ease:'power2.inOut',scrollTrigger:{trigger:'.atlas-map',start:'top 80%',once:true}});}
  if(document.querySelector('.frame-orbit'))gsap.fromTo('.frame-orbit',{rotation:-35},{rotation:10,ease:'none',scrollTrigger:{trigger:'.featured-frame',start:'top bottom',end:'bottom top',scrub:1.5}});
@@ -271,19 +268,9 @@ media.add('(prefers-reduced-motion: no-preference)',()=>{
  document.querySelectorAll<HTMLElement>('.section-description,.project-caption,.process-tabs,.author-grid>div,.services>div,.case-text>div').forEach(element=>{
   gsap.fromTo(element,{y:30,opacity:0},{y:0,opacity:1,duration:.9,ease:'power2.out',scrollTrigger:{trigger:element,start:'top 94%',once:true}});
  });
- const theatre=document.querySelector('.myth-theatre');
- if(theatre){
-  gsap.fromTo('.myth-landscape',{scale:1.13,yPercent:3},{scale:1,yPercent:-3,ease:'none',scrollTrigger:{trigger:theatre,start:'top bottom',end:'bottom top',scrub:1.2}});
-  gsap.to('.myth-stage-rune',{rotation:90,y:55,ease:'none',scrollTrigger:{trigger:theatre,start:'top top',end:'bottom bottom',scrub:1}});
- }
  updateMotion();
 });
-const mythChapters=Array.from(document.querySelectorAll<HTMLElement>('[data-myth-chapter]'));
-if(mythChapters.length){
- const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){const note=(entry.target as HTMLElement).dataset.mythNote;const label=document.querySelector('[data-myth-index]');if(label&&note)label.textContent=note;const stage=document.querySelector<HTMLElement>('[data-myth-stage]');if(stage)stage.dataset.phase=String(mythChapters.indexOf(entry.target as HTMLElement));}});
- },{rootMargin:'-25% 0px -35% 0px',threshold:0});mythChapters.forEach(chapter=>observer.observe(chapter));
-}
+
 
 // Horizontal folios: native touch scrolling, mouse drag with bounded momentum,
 // arrow buttons and keyboard equivalents. Never capture the page's wheel.
