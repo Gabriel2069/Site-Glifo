@@ -35,8 +35,9 @@ test('narrative reveals whole paragraphs with distinct heading typography',async
 test('identity directory opens each board and its real materials',async({page})=>{
  for(const slug of ['glifo','christiano-tadeu','tdv']){
   await page.goto('/identidades/');await page.goto(`/identidades/${slug}/`);
-  await expect(page.locator('.identity-cover h1')).toBeVisible();await page.locator('.identity-cover-art img').evaluate((img:HTMLImageElement)=>img.decode());
-  expect(await page.locator('.identity-cover-art img').evaluate((img:HTMLImageElement)=>img.naturalWidth>0)).toBe(true);
+  await expect(page.locator('.identity-cover h1')).toBeVisible();await page.locator('.identity-cover-art > img').evaluate((img:HTMLImageElement)=>img.decode());
+  expect(await page.locator('.identity-cover-art > img').evaluate((img:HTMLImageElement)=>img.naturalWidth>0)).toBe(true);
+  const sample=page.locator('.amostra-aplicada');await expect(sample).toHaveAttribute('href','#materiais');await sample.click();await expect(page.locator('#materiais')).toBeInViewport();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  }
 });
