@@ -6,15 +6,18 @@ export function initImpression() {
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const precise=matchMedia('(hover: hover) and (pointer: fine)');
  const views=field.querySelectorAll<HTMLButtonElement>('[data-vista]');
- const layers:Record<string,string>={matriz:'.matriz-cena',mesa:'.mesa-cena',gravura:'.impressao-garra'};
+ const sheets=Array.from(field.querySelectorAll<HTMLElement>('[data-folha]'));
+ const images=sheets.map(sheet=>sheet.querySelector('img')!);
  const toggle=field.querySelector<HTMLButtonElement>('[data-impressao-play]')!;
  const stage=field;
  const frames=Array.from(views);
  const duration=5.2;
  let manualPause=false;
  let visible=false;
+ let firstReady=false;
  let scene:gsap.core.Timeline;
  let transition:gsap.core.Tween|undefined;
+ let pending=0;
  let index=0;
 
  function syncSequence(){
@@ -24,34 +27,57 @@ export function initImpression() {
   toggle.dataset.paused=String(manualPause);
   toggle.setAttribute('aria-label',manualPause?'Retomar sequência':'Pausar sequência');
   if(quiet) transition?.progress(1);
-  const running=visible&&!document.hidden&&!quiet&&!examining&&!manualPause;
+  const running=(firstReady||index!==0)&&visible&&!document.hidden&&!quiet&&!examining&&!manualPause;
   scene.paused(!running);
   if(transition&&!quiet)transition.paused(!visible||document.hidden||examining);
  }
  function compose(next:number,animate:boolean){
+  const from=sheets[index], to=sheets[next];
   scene?.kill();
   transition?.progress(1).kill();
   stage.classList.remove('com-lupa');
   index=next;
-  const key=frames[index].dataset.vista!;
-  stage.dataset.prova=key;
+  stage.dataset.prova=to.dataset.folha;
   frames.forEach((button,i)=>button.setAttribute('aria-pressed',String(index===i)));
-  stage.style.setProperty('--andamento','0');
-  scene=gsap.timeline({paused:true,onComplete:()=>compose((index+1)%frames.length,true)});
-  scene.to(stage,{'--andamento':1,duration,ease:'none'});
-  if(animate&&!reduced.matches&&!document.documentElement.classList.contains('motion-paused')){
-   transition=gsap.fromTo(stage.querySelector(layers[key]),
-    {clipPath:'polygon(30% 0,100% 0,100% 100%,16% 100%)',opacity:.15},
-    {clipPath:'polygon(0 0,100% 0,100% 100%,0 100%)',opacity:1,duration:1.05,ease:'power3.out',clearProps:'clipPath,opacity'});
+  const meter=frames[next].querySelector('.tempo-cena');
+  const camera=images[next];
+  scene=gsap.timeline({paused:true,defaults:{duration,ease:'none'},onComplete:()=>select((index+1)%frames.length,true)});
+  scene.fromTo(meter,{scaleX:0},{scaleX:1});
+  if(!reduced.matches){
+   const end=next===1?1:1.045;
+   scene.fromTo(camera,{scale:next===1?1.045:1},{scale:end},0);
+  }
+  if(animate&&!reduced.matches){
+   from.dataset.outgoing='';
+   transition=gsap.fromTo(to,{opacity:0},{opacity:1,duration:.65,ease:'sine.inOut',
+    onComplete:()=>{delete from.dataset.outgoing;gsap.set(to,{clearProps:'opacity'})}});
   }
   syncSequence();
  }
+ async function select(next:number,automatic:boolean){
+  const request=++pending;
+  if(next===index){syncSequence();return}
+  try { await images[next].decode() }
+  catch {
+   if(request===pending&&automatic)scene.restart();
+   syncSequence();
+   return;
+  }
+  if(request!==pending)return;
+  compose(next,true);
+ }
  frames.forEach((button,i)=>button.addEventListener('click',()=>{
   manualPause=true;
-  if(i!==index)compose(i,true);else syncSequence();
+  syncSequence();
+  void select(i,false);
  }));
- toggle.addEventListener('click',()=>{manualPause=!manualPause;syncSequence()});
+ toggle.addEventListener('click',()=>{manualPause=!manualPause;if(manualPause)pending++;else if(scene.progress()===1)scene.restart();syncSequence()});
  compose(0,false);
+ // Give the first print its full time on screen even on a cold connection.
+ images[0].decode().catch(()=>{}).then(()=>{
+  firstReady=true;
+  syncSequence();
+ });
  new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;syncSequence()},{threshold:.15}).observe(stage);
  new MutationObserver(syncSequence).observe(document.documentElement,{attributes:true,attributeFilter:['class']});
  document.querySelectorAll('dialog').forEach(dialog=>new MutationObserver(syncSequence).observe(dialog,{attributes:true,attributeFilter:['open']}));

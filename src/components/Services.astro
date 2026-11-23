@@ -1,4 +1,5 @@
 ---
+import WhatsApp from './WhatsApp.astro';
 import Icon from './Icon.astro';
 import ProjectVisual from './ProjectVisual.astro';
 import {services,site,projects} from '../data/site';
@@ -14,7 +15,7 @@ import {services,site,projects} from '../data/site';
      <summary aria-controls={`service-detail-${i}`}><h3><span class="service-number">0{i+1}</span><span class="service-name">{service.title}</span><span class="service-toggle" aria-hidden="true"><Icon name="plus"/></span></h3></summary>
      <div id={`service-detail-${i}`} class="service-detail">
       <div class="service-detail-inner"><div class="service-description"><p>{service.copy}</p><p class="service-delivery-label">O QUE PODE FAZER PARTE</p><ul>{service.items.map(item=><li>{item}</li>)}</ul></div>
-       <a class="glifo-action service-contact" href={`${site.contact.whatsapp}?text=${encodeURIComponent(`Olá, Tadeu! Quero conversar sobre ${service.title.toLowerCase()} para meu projeto.`)}`} target="_blank" rel="noopener noreferrer"><span>Conversar sobre este serviço</span><span class="action-arrow" aria-hidden="true"><Icon name="arrow"/></span></a>
+       <a class="glifo-action service-contact" href={`${site.contact.whatsapp}?text=${encodeURIComponent(`Olá, Tadeu! Quero conversar sobre ${service.title.toLowerCase()} para meu projeto.`)}`} target="_blank" rel="noopener nnoreferrer"><WhatsApp/><span>Conversar sobre este serviço</span><span class="action-arrow" aria-hidden="true"><Icon name="arrow"/></span></a>
        <figure class="service-example"><div class="service-example-art">{service.proofImage?<img src={service.proofImage} alt={service.proofAlt} width="1440" height="1000" loading="lazy"/>:<ProjectVisual project={project}/>}</div><figcaption><span class="service-example-index">0{i+1} / UM TRABALHO PARA CONHECER</span><h4>{project.title}</h4><p>{service.proofNote}</p><a class="service-proof" href={`/trabalhos/${project.slug}/`}>Explorar o projeto <Icon name="arrow"/></a></figcaption></figure>
       </div>
      </div>
