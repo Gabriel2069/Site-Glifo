@@ -70,3 +70,28 @@ test('the animated headline keeps two typographic lines after masks are inserted
  await page.emulateMedia({reducedMotion:'reduce'});
  await expect.poll(()=>page.locator('#hero-title .reveal-word').evaluateAll(words=>words.every(w=>Number(getComputedStyle(w).opacity)===1))).toBe(true);
 });
+
+test('the atelier view switch works from the keyboard without leaving the opening', async ({page}) => {
+ await page.goto('/');
+ const field = page.locator('.impressao-campo');
+ const print = field.getByRole('button', {name:'Na gravura'});
+ await print.focus();
+ await print.press('Enter');
+ await expect(print).toHaveAttribute('aria-pressed', 'true');
+ await expect(field.locator('.impressao-garra')).toBeVisible();
+ await expect(field.locator('.mesa-cena')).toBeHidden();
+ await field.getByRole('button', {name:'Na mesa'}).click();
+ await expect(field.locator('.mesa-cena')).toBeVisible();
+});
+
+test('the desktop identity index reveals the focused document sample', async ({page}) => {
+ await page.setViewportSize({width:1280,height:800});
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.goto('/');
+ const covers = page.locator('#document-shelf a');
+ await covers.first().focus();
+ await page.keyboard.press('Tab');
+ await expect(covers.nth(1)).toBeFocused();
+ await expect(covers.nth(1).locator('.brand-document-image')).toHaveCSS('opacity','1');
+ await expect(covers.first().locator('.brand-document-image')).toHaveCSS('opacity','0');
+});

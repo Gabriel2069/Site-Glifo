@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import type { Project } from '../data/site';
+interface Props { project:Project }
+const {project:p}=Astro.props;
+const pieces: Record<string, [string,string,string][]> = {
+ 'christiano-tadeu':[['ct-web','/projects/christiano-home.webp','Site de Christiano Tadeu'],['ct-bolso','/projects/christiano-links.webp','Página de links do consultor']],
+ 'tdv-editorial':[['tdv-folha','/projects/tdv-opening.webp','Abertura editorial de Tessitura do Vazio'],['tdv-capa',p.image,p.alt]],
+ 'delfas-corpore':[['delfas-folha','/identities/delfas/manual-13.webp','Estudo de cor do manual'],['delfas-livro','/identities/delfas/manual-1.webp','Capa da proposta de identidade Delfas Corpore']],
+ 'acolher-comissao':[['acolher-poster','/identities/acolher/acolher-slide-1.webp','Apresentação ilustrada do Projeto Acolher'],['comissao-poster','/identities/acolher/comissao-slide-1.webp','Apresentação da Comissão Grão de Mostarda']],
+ tadeon:[['tela-tadeon',p.image,p.alt]], nexos:[['tela-nexos',p.image,p.alt]]
+};
+---
+<div class:list={['mostra-cliente','vitrine-pecas',`vitrine-${p.slug}`,{'mostra-ct':p.slug==='christiano-tadeu','mostra-tdv':p.slug==='tdv-editorial'}]}>
+ <span class="vitrine-campo" aria-hidden="true"></span>
+ {pieces[p.slug].map(([cl,src,alt])=><img class={cl} src={src} alt={alt} loading="lazy"/>)}
+ <span class="vitrine-abrir" aria-hidden="true">Ver projeto <Icon/></span>
+</div>

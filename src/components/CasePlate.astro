@@ -1,0 +1,27 @@
+---
+import ProjectVisual from './ProjectVisual.astro';
+import Icon from './Icon.astro';
+import type { Project } from '../data/site';
+interface Props { project:Project }
+const {project}=Astro.props;
+const proofs:Record<string,{src:string;label:string;tone:string}>={
+ glifo:{src:'/brand/oficio/matriz-latao.webp',label:'O grifo em baixo-relevo',tone:'#66523c'},
+ 'christiano-tadeu':{src:'/projects/christiano-home.webp',label:'A marca no site do consultor',tone:'#264a6d'},
+ 'delfas-corpore':{src:'/identities/delfas/manual-13.webp',label:'Estudo de cor do reposicionamento',tone:'#684c60'},
+ 'tdv-editorial':{src:'/projects/tdv-opening.webp',label:'Dentro de Tessitura do Vazio',tone:'#615f50'},
+ 'acolher-comissao':{src:'/identities/acolher/acolher-slide-1.webp',label:'Uma página do Projeto Acolher',tone:'#ab6847'},
+ tadeon:{src:project.image,label:'Detalhe da interface de Tadeon Nexus',tone:'#49433b'},
+ nexos:{src:project.image,label:'Detalhe da interface de NexOS',tone:'#36375b'}
+};
+const proof=proofs[project.slug];
+---
+<figure id="case-cover" class={`case-project-visual wrap plate plate-${project.slug}`} style={`--plate-tone:${proof.tone}`}>
+ <div class="plate-spread">
+  <ProjectVisual project={project} eager/>
+  <button type="button" class="plate-detail" data-board-image={proof.src} data-board-caption={proof.label} aria-label={`Ampliar: ${proof.label}`}>
+   <img src={proof.src} alt="" width="960" height="650"/>
+   <span>{proof.label} <Icon name="arrow"/></span>
+  </button>
+ </div>
+ <figcaption>{project.caption}</figcaption>
+</figure>

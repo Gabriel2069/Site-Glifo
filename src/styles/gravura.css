@@ -1,0 +1,172 @@
+/* Abertura: o fundo é uma única mesa fotografada no espaço da cena. */
+.matriz-cena { position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:0;visibility:hidden }
+.matriz-cena img { width:100%;height:100%;object-fit:cover;object-position:50% 55% }
+.impressao-campo[data-prova="matriz"] { background:var(--blue) }
+.impressao-campo[data-prova="matriz"] .matriz-cena { opacity:1;visibility:visible }
+.impressao-campo[data-prova="matriz"] :is(.mesa-cena,.impressao-garra,.impressao-orbita) { opacity:0;visibility:hidden }
+.impressao-campo[data-prova="matriz"]::before { content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#081920b8 0%,#09132150 37%,transparent 59%);pointer-events:none }
+.impressao-campo[data-prova="matriz"] h1 { font-size:clamp(90px,9.8vw,179px);line-height:.83;margin-bottom:30px }
+.impressao-campo[data-prova="matriz"] h1 em { margin-left:.22em;color:#e5cd9b }
+.impressao-campo[data-prova="matriz"] .impressao-rodape { width:40% }
+.prova-seletor {background:#09132185;backdrop-filter:blur(6px)}
+.matriz-examinar {position:absolute;right:7%;bottom:5%;display:none;align-items:center;gap:.7em;padding:.48em 1.15em .48em .5em;border:1px solid #f2e4c888;border-radius:99px;background:#101c21e6;color:var(--light);font:600 12px var(--sans);cursor:pointer;z-index:2;transition:background .25s,color .25s}
+[data-prova="matriz"] .matriz-examinar {display:flex}
+.matriz-examinar span {display:grid;place-items:center;border:1px solid #c4aa78;border-radius:50%;width:28px;height:28px;font:23px/1 var(--serif)}
+.matriz-examinar:is(:hover,:focus-visible){background:var(--light);color:var(--night)}
+.matriz-dialogo {padding:0;background:#101e27;color:var(--light);border:1px solid #bba47c77;max-width:min(92vw,620px);width:100%;max-height:93svh;overflow:auto}
+.matriz-dialogo::backdrop {background:#06101bdb;backdrop-filter:blur(7px)}
+.matriz-painel {padding:clamp(16px,3vw,34px)}
+.matriz-painel header,.matriz-painel footer {display:flex;justify-content:space-between;align-items:center;gap:16px}
+.matriz-painel h2 {font:400 clamp(34px,4vw,58px)/1.05 var(--serif);margin:7px 0 15px}
+.matriz-fechar {width:44px;height:44px;display:grid;place-items:center;background:transparent;color:var(--light);border:1px solid var(--line);cursor:pointer}
+.matriz-arte {position:relative;max-height:56svh;aspect-ratio:570/690;max-width:100%;margin:auto;border:3px solid #877350;background:#483e32;box-shadow:6px 10px 15px #0005}
+.matriz-arte img,.matriz-arte canvas {position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.matriz-arte canvas{opacity:0}
+.matriz-painel footer {border-top:1px solid var(--line);padding-top:16px;margin-top:22px;font:600 12px var(--sans)}
+.matriz-painel input {min-width:30px;flex:1;accent-color:var(--lavender)}.matriz-painel output{min-width:37px;text-align:right}
+.gesto-amostra {position:relative;text-decoration:none;justify-content:center;cursor:pointer;padding:9px 6px;min-height:44px;color:var(--night)}
+.gesto-amostra img {transition:transform .35s var(--ease)}
+.gesto-amostra:is(:hover,:focus-visible) img {transform:translateY(-4px) rotate(-10deg)}
+.gesto-amostra:is(:hover,:focus-visible){color:var(--purple);text-decoration:underline;text-underline-offset:4px}
+.prova-de-gestos {background:linear-gradient(100deg,#d4dcdb,#f0eee4 36%,#d3dcd9);padding-block:10px}
+.vitrine-campo {position:absolute;inset:0;pointer-events:none}
+.vitrine-abrir {position:absolute;bottom:17px;left:18px;border:1px solid #ffffff80;background:var(--night);color:white;padding:8px 13px;font:600 10px var(--sans);opacity:0;transform:translateY(6px);transition:opacity .25s,transform .25s}
+.collection-panel>a:is(:hover,:focus-visible) .vitrine-abrir {opacity:1;transform:translateY(0)}
+.vitrine-pecas img {transition:translate .56s var(--ease),rotate .56s var(--ease)}
+.collection-panel>a:is(:hover,:focus-visible) .vitrine-pecas img:first-of-type {translate:-1% -1.5%;rotate:-1deg}
+.collection-panel>a:is(:hover,:focus-visible) .vitrine-pecas img:nth-of-type(2) {translate:2.5% 1%;rotate:2deg}
+.vitrine-delfas-corpore {background:#9b838b}
+.vitrine-delfas-corpore .vitrine-campo {background:#321e37;clip-path:polygon(68% 0,100% 0,100% 100%,27% 100%)}
+.delfas-folha,.delfas-livro {width:43%;height:auto;top:10%}
+.delfas-livro {left:15%;transform:rotate(-11deg)}.delfas-folha {right:11%;transform:rotate(10deg)}
+.vitrine-acolher-comissao {background:#f1d8ad}.vitrine-acolher-comissao .vitrine-campo {background:#c36a45;clip-path:polygon(0 0,40% 0,85% 100%,0 100%)}
+.acolher-poster {width:75%;left:3%;top:9%;transform:rotate(-5deg)}.comissao-poster {width:52%;right:3%;bottom:8%;transform:rotate(7deg)}
+.vitrine-tadeon {background:#1d2428}.vitrine-tadeon .vitrine-campo {background:repeating-linear-gradient(57deg,transparent 0 25px,#c4b8965c 26px,transparent 28px);clip-path:polygon(0 0,46% 0,100% 100%,77% 100%)}
+.tela-tadeon,.tela-nexos {width:84%;top:50%;left:8%;transform:translateY(-50%) rotate(-3deg);border:1px solid #aaa79b66}
+.vitrine-nexos {background:#151b3d url('/images/stellar-field.webp') center/cover}
+.tela-nexos {transform:translateY(-50%) rotate(3deg);border:1px solid #a4c6e2a6}
+.editorial-home .collection-panel {--case-ink:#091524;background:var(--case-ink)}
+.collection-panel[data-collection-project="christiano-tadeu"]{--case-ink:#0a2039}
+.collection-panel[data-collection-project="delfas-corpore"]{--case-ink:#321c38}
+.collection-panel[data-collection-project="acolher-comissao"]{--case-ink:#3b3027}
+.collection-panel[data-collection-project="tdv-editorial"]{--case-ink:#242321}
+.collection-panel[data-collection-project="tadeon"]{--case-ink:#1a2023}
+.collection-panel[data-collection-project="nexos"]{--case-ink:#161a31}
+.editorial-home .collection-tabs button[aria-selected=true] {background:#253a46;box-shadow:inset 0 -2px var(--lavender)}
+.editorial-home .collection-tabs button:is(:hover,:focus-visible){background:#22313d}
+
+/* Margens de impressão. O desenho muda com o capítulo lido. */
+.marginalia {position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.marginalia img {position:absolute;bottom:-4%;left:46%;width:clamp(200px,24vw,440px);height:35%;object-fit:contain;opacity:0;transform:rotate(-11deg) translateY(18px);transition:opacity .6s ease,transform .8s var(--ease)}
+.myth-stage[data-phase="0"] .marginalia img:nth-child(1),.myth-stage[data-phase="1"] .marginalia img:nth-child(2),.myth-stage[data-phase="2"] .marginalia img:nth-child(3){opacity:.67;transform:rotate(-4deg) translateY(0)}
+.editorial-home .myth-stage .oficio-surface {background-size:clamp(120px,14vw,260px);background-color:var(--blue);transition:background-color .7s ease}
+.editorial-home .myth-stage[data-phase="1"] .oficio-surface {background-color:var(--purple)}
+.editorial-home .myth-stage[data-phase="2"] .oficio-surface {background-color:var(--night)}
+.editorial-home .studio-language {background:linear-gradient(107deg,#123f49 0 53%,#102b33 53% 95%,#143e47 95%);border-block:1px solid var(--line)}
+.editorial-home .studio-language::before {background-position:-10% 75%;background-size:47vw;opacity:.11}
+.editorial-home #servicos {position:relative;isolation:isolate;background:linear-gradient(106deg,#241a32 0 60%,#301d41 60%);overflow:clip;max-width:none}
+#servicos::before {content:'';position:absolute;inset:-2% -3% auto auto;width:34%;height:250px;background:url('/brand/oficio/talho-canto.svg') right top/contain no-repeat;opacity:.23;z-index:-1}
+#servicos .section-heading {margin-bottom:clamp(25px,4vw,65px)}
+#servicos .service-accordion>article {border-color:#cab0cc42}
+#servicos summary {transition:padding-inline .35s var(--ease),background .35s}
+#servicos summary:is(:hover,:focus-visible) {padding-inline:13px;background:#dbc8b80d}
+#servicos .service-accordion details[open] .service-toggle {color:var(--night);background:var(--lavender);border-color:var(--lavender)}
+.editorial-home .brand-documents {background:#e7e8de url('/brand/oficio/recurva-modulo.svg') no-repeat right -70px top -120px/250px}
+.editorial-home .brand-documents .section-heading {position:relative;z-index:1}
+.editorial-home .arquivo-legenda svg {transition:transform .25s var(--ease)}
+.editorial-home .brand-document-card:is(:hover,:focus-visible) .arquivo-legenda svg {transform:translate(3px,-3px)}
+.arquivo-pigmentos {width:58%;height:15px}
+.editorial-home .process-panel .folha-processo {position:relative;isolation:isolate}
+.folha-processo::before {content:'';position:absolute;inset:0;z-index:-1;background:url('/brand/oficio/talho-canto.svg') -20% 110%/64% auto no-repeat;opacity:.28}
+.editorial-home .folha-processo img {transition:transform .5s var(--ease)}
+.folha-processo:hover img {transform:rotate(-2deg) translateY(3%)}
+.editorial-home .author {position:relative;isolation:isolate;overflow:hidden;background:#d6d7ca;background-image:linear-gradient(113deg,#e0e2d7 0 46%,#ecebe1 46%)}
+.autor-assina {position:relative;isolation:isolate;align-self:stretch}
+.autor-assina .autor-marca {position:absolute;z-index:-1;right:1%;bottom:-12%;width:55%;height:90%;background:url('/brand/oficio/barbas-de-prata.webp') no-repeat center/contain;mix-blend-mode:multiply;opacity:.36;transform:rotate(-16deg)}
+.editorial-home .contact-section {background:#123c43}
+.editorial-home .contact-section::after {content:'';position:absolute;z-index:-2;inset:0;background:url('/brand/oficio/recurva-modulo.svg') repeat right top/100px;opacity:.085;mask-image:linear-gradient(90deg,transparent 40%,#000 85%)}
+.editorial-home .contact-section .contact-whatsapp {background:var(--light);color:var(--night);border-color:var(--light)}
+.editorial-home .contact-whatsapp small {color:var(--blue)}
+.editorial-home .contact-whatsapp .action-arrow {color:var(--night);border-color:#123f4970}
+.work-directory .work-intro {grid-template-columns:minmax(0,1.27fr) minmax(0,1fr);align-items:center;position:relative;isolation:isolate}
+.work-directory .work-intro h1 {font-size:clamp(68px,7.7vw,130px)}
+.arquivo-leque {position:relative;aspect-ratio:1.17;isolation:isolate;min-width:0}
+.arquivo-leque::before {content:'';position:absolute;inset:4% -4% 2% 5%;background:var(--purple);clip-path:polygon(14% 6%,79% 0,100% 85%,0 100%)}
+.arquivo-leque a {position:absolute;top:9%;left:7%;width:43%;height:69%;background:#1a2028;border:1px solid #c5cfd258;box-shadow:3px 8px 15px #0004;transform:rotate(-16deg);transition:translate .35s var(--ease),rotate .35s var(--ease)}
+.arquivo-leque a:nth-child(2) {left:30%;top:16%;transform:rotate(-2deg)}
+.arquivo-leque a:nth-child(3) {left:51%;top:23%;transform:rotate(12deg)}
+.arquivo-leque img {width:100%;height:100%;object-fit:cover}
+.arquivo-leque span {position:absolute;inset:auto 0 0;padding:9px;background:var(--night);color:var(--light);font:600 11px var(--sans)}
+.arquivo-leque a:is(:hover,:focus-visible) {z-index:2;translate:0 -5%;rotate:2deg}
+.indice-tintas {display:flex;height:8px}.indice-tintas i {flex:1;transition:flex .3s var(--ease)}.identity-index-item:is(:hover,:focus-visible) .indice-tintas i:first-child {flex:2.5}
+.identity-directory .page-intro {position:relative;isolation:isolate}
+.identity-directory .page-intro::before {content:'';position:absolute;inset:0;z-index:-1;background:url('/brand/oficio/talho-canto.svg') 105% 20%/40% auto no-repeat;opacity:.14}
+@media(min-width:761px) {
+ .prova-de-gestos {position:relative;isolation:isolate;justify-content:stretch;gap:0;padding-inline:7vw}
+ .gestos-titulo {flex:1.15;min-width:135px}
+ .gesto-amostra {flex:1;min-height:68px;border-left:1px solid #123f4922;transform:skewY(-3deg);background:linear-gradient(90deg,#bec9be26,#fff3)}
+ .gesto-amostra:nth-of-type(even){transform:skewY(3deg);background:linear-gradient(90deg,#87978f17,#c5cfcb44)}
+ .gesto-amostra:is(:hover,:focus-visible){background:#eeeadd;z-index:1}
+ .editorial-home .work-collection {padding-top:clamp(18px,2vw,36px)}
+}
+@media(max-width:760px) {
+ .impressao-campo[data-prova="matriz"] {padding-top:clamp(300px,80vw,488px);background:#173135}
+ .matriz-cena {bottom:auto;height:clamp(300px,83vw,500px)}
+ .matriz-cena img {object-position:center 43%;mask-image:linear-gradient(#000 86%,transparent)}
+ .impressao-campo[data-prova="matriz"]::before {display:none}
+ .impressao-campo[data-prova="matriz"] h1 {font-size:clamp(59px,13.8vw,107px);margin:15px 0 16px}
+ .impressao-campo[data-prova="matriz"] .impressao-rodape {width:100%}
+ .matriz-examinar {top:clamp(238px,63vw,402px);right:5%;bottom:auto;font-size:11px}
+ .gesto-amostra {padding:5px 2px}.prova-de-gestos {padding:6px 5vw}
+ .marginalia img {bottom:0;left:62%;width:38%;height:20%}
+ .editorial-home .studio-language {background:var(--blue)}
+ #servicos::before {width:52%;height:150px;opacity:.12}
+ .editorial-home .brand-documents {background-position:right -115px top -95px}
+ .editorial-home .author {background-image:linear-gradient(125deg,#d8dbcb 0 25%,#ecebe1 25%)}
+ .autor-assina .autor-marca {right:18%;width:27%;height:150%}
+ .work-directory .work-intro {grid-template-columns:1fr;gap:15px}
+ .work-directory .work-intro h1 {font-size:clamp(51px,13vw,80px)}
+ .arquivo-leque {width:min(100%,420px);aspect-ratio:1.75;margin:auto}
+ .arquivo-leque a {width:36%;height:84%;top:0}.arquivo-leque a:nth-child(2){top:4%}.arquivo-leque a:nth-child(3){top:9%}
+ .vitrine-abrir {display:none}
+}
+@media(prefers-reduced-motion:reduce) {
+ .marginalia img,.editorial-home .myth-stage .oficio-surface,.vitrine-pecas img,.vitrine-abrir,.gesto-amostra img,.arquivo-leque a,#servicos summary,.editorial-home .folha-processo img,.editorial-home .arquivo-legenda svg,.indice-tintas i,.matriz-examinar {transition:none}
+}
+.lupa-de-mesa {position:absolute;z-index:2;width:clamp(105px,10vw,165px);height:auto;aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;opacity:0;border-radius:50%;border:2px solid #dbc396;outline:1px solid #372a24;box-shadow:0 8px 16px #0007,0 0 0 6px #9d845b50;transition:opacity .16s ease}
+.com-lupa .lupa-de-mesa {opacity:1}
+@media(prefers-reduced-motion:reduce),(hover:none){.lupa-de-mesa{display:none}}
+.editorial-home .collection-tabs button {text-align:left}
+.editorial-home .collection-tabs button>.amostra-projeto {display:block;width:100%;height:48px;overflow:hidden;border-bottom:1px solid var(--line);background:var(--night);margin:0 0 11px}
+.amostra-projeto img {width:100%;height:100%;object-fit:cover;object-position:50% 22%;opacity:.65;transition:opacity .25s ease,scale .35s ease}
+.collection-tabs button:is([aria-selected=true],:hover,:focus-visible) .amostra-projeto img {opacity:1;scale:1.05}
+.editorial-home .collection-tabs button strong {font-size:clamp(18px,1.65vw,29px)}
+@media(min-width:1050px) {
+ .editorial-home .collection-panel {grid-template-columns:minmax(0,1.96fr) minmax(0,1fr);position:relative;isolation:isolate}
+ .editorial-home .collection-panel>a {margin-right:-11%}
+ .editorial-home .collection-caption,.editorial-home .visual-provenance {position:relative;z-index:1;margin-right:5%;background:#e5e5da;color:var(--night)}
+ .editorial-home .collection-caption {align-self:stretch;justify-content:center;margin-top:8%;padding:clamp(25px,2.8vw,54px);border-left:5px solid var(--case-ink);gap:14px}
+ .editorial-home .collection-caption h3 {color:var(--night);font-size:clamp(29px,2.7vw,48px)}
+ .editorial-home .collection-caption :is(.collection-project-name,.quiet-link,.quiet-link:last-child) {color:var(--blue);border-color:#123f494d}
+ .editorial-home .collection-caption p:not(.eyebrow),.editorial-home .visual-provenance {color:#34464b}
+ .editorial-home .collection-panel .visual-provenance {border-left:5px solid var(--case-ink);padding:0 clamp(25px,2.8vw,54px) 24px;margin-bottom:8%}
+ .editorial-home .collection-caption .quiet-link,.editorial-home .collection-caption .quiet-link:last-child{background:transparent}
+}
+.editorial-home .contact-section::before,.editorial-home .contact-section::after {display:none}
+.contact-lenco {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.editorial-home .contact-section .wrap {position:relative;isolation:isolate}
+.editorial-home .contact-section .wrap::before {content:'';position:absolute;z-index:-1;inset:-50% 41% -50% -15%;background:linear-gradient(90deg,#091924cf,#091924b3 63%,transparent);pointer-events:none}
+.editorial-home .contact-section h2 {max-width:61%}
+.editorial-home .contact-section .wrap>p:not(.eyebrow) {max-width:min(44ch,52%)}
+@media(max-width:760px){
+ .editorial-home .collection-tabs button>.amostra-projeto {height:30px;margin-bottom:7px}
+ .editorial-home .collection-tabs button {flex-basis:126px;padding:8px 10px}
+ .editorial-home .contact-section {padding-top:clamp(185px,48vw,290px);background:#0f232d}
+ .contact-lenco {height:clamp(220px,56vw,330px);object-position:right top;mask-image:linear-gradient(#000 75%,transparent)}
+ .editorial-home .contact-section h2 {max-width:100%}
+ .editorial-home .contact-section .wrap::before {display:none}
+ .editorial-home .contact-section .wrap>p:not(.eyebrow){max-width:44ch}
+}
+@media(prefers-reduced-motion:reduce){.amostra-projeto img{transition:none}}
+.lenco-filme {opacity:0;pointer-events:none;transition:opacity .32s ease}
+.lenco-filme.is-playing {opacity:1}
+@media(prefers-reduced-motion:reduce){.lenco-filme{display:none}}

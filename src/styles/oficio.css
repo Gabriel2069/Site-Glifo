@@ -1,0 +1,198 @@
+.site-header, .site-header.scrolled { background:var(--night); border-bottom:1px solid var(--line) }
+.studio-language { background:var(--blue); color:var(--light); padding-block:clamp(52px,8vw,120px); scroll-margin-top:80px }
+.studio-language .wrap { display:grid; grid-template-columns:1fr 1.25fr; align-items:center; gap:8% }
+.studio-language h2 { font:400 clamp(45px,5.2vw,90px)/1 var(--serif); letter-spacing:-.04em; margin:.45em 0 .3em }
+.studio-language header > p:not(.eyebrow) { max-width:42ch; line-height:1.8; color:var(--muted) }
+.studio-language figure { margin:0 }
+.studio-language figure img { display:block; width:100%; height:auto }
+.studio-language .quiet-link { margin-top:1.25rem }
+.method-sign { background:var(--light); mask:var(--sign) center/contain no-repeat; width:40px; height:40px; flex:none }
+.process-tabs button[aria-selected=true] .method-sign { background:var(--lavender) }
+.editorial-home .contact-section, .bio-page .bio-hub { background:var(--purple) }
+.identity-glifo { --board-surface:var(--night); --board-paper:var(--light); --board-muted:var(--muted); --board-line:var(--line); --board-accent:var(--lavender) }
+.oficio-signs { display:grid; grid-template-columns:repeat(6,1fr); background:var(--light); color:var(--night); padding:clamp(18px,3vw,46px); gap:16px }
+.oficio-signs figure { margin:0; text-align:center; min-width:0 }
+.oficio-signs img { width:min(100%,96px); height:auto }
+.oficio-signs figcaption { text-transform:capitalize; font:600 12px/1.5 var(--sans) }
+@media(max-width:760px){
+ .studio-opening { padding:98px 0 32px }
+ .studio-opening-inner,.studio-language .wrap { grid-template-columns:1fr; gap:28px }
+ .studio-intro { padding:0 }
+ .studio-intro h1 { font-size:clamp(56px,13vw,90px) }
+ .studio-intro .line-link { margin-top:1rem }
+ .studio-specimen { aspect-ratio:1.65 }
+ .studio-specimen figcaption { padding:9px 4% }
+ .studio-language figure { max-width:560px }
+ .oficio-signs { grid-template-columns:repeat(3,1fr) }
+}
+.archive-sheet .oficio-sheet { background:var(--night); display:grid; place-items:center }
+.archive-sheet .oficio-sheet img { width:100%; height:100%; object-fit:contain; padding:4%; transform:none }
+.archive-sheet:first-child .oficio-sheet img { width:56% }
+
+.site-header .contact-link { background:var(--purple); border-color:var(--line) }
+.site-header .contact-link:is(:hover,:focus-visible) { border-color:var(--lavender) }
+.studio-opening .studio-entry { position:static; display:block; margin:0 }
+.studio-language.invocation { max-width:none; margin:0; text-align:left }
+.studio-language .studio-observatory { background:var(--night); min-height:0; aspect-ratio:1.1; justify-content:center; align-items:center }
+.studio-observatory:after { display:none }
+.studio-observatory .griff-scene { width:88%; max-width:520px; margin:0 auto; height:auto; aspect-ratio:1 }
+.myth-stage .myth-landscape { object-position:left center }
+.myth-stage .oficio-surface { background:var(--blue) url('/brand/oficio/nervura-modulo.svg') repeat center/200px }
+.glyph-fragments .method-sign { width:20%; height:auto; aspect-ratio:1; background:var(--light) }
+@media(min-width:761px){
+ .studio-observatory .scene-controls,.studio-observatory .lens-angle { bottom:2px }
+}
+
+/* A abertura segue o recorte da garra no cartão do ateliê. */
+.impressao { padding-top:var(--header-height,80px); background:var(--night) }
+.impressao-campo { position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; min-height:clamp(610px,76svh,900px); padding:clamp(32px,4vw,72px) 7vw; background:var(--purple); color:var(--light) }
+.impressao-indice,.impressao-rodape,.prova-de-gestos { display:flex; align-items:center; justify-content:space-between; gap:1em }
+.impressao-indice { position:absolute; inset:clamp(25px,3.4vw,62px) 7vw auto; text-transform:uppercase; letter-spacing:.16em; font:600 clamp(10px,.78vw,14px)/1.5 var(--sans); z-index:2 }
+
+.impressao-garra { position:absolute; z-index:-1; top:-15%; right:-10%; width:70%; max-width:none; height:auto; transform:rotate(-11deg); transform-origin:70% 30%; pointer-events:none }
+.impressao-orbita { position:absolute; z-index:-2; right:13%; top:-48%; width:57%; aspect-ratio:1; border:1px solid rgb(196 170 120 / .38); border-radius:50% }
+.impressao-orbita::after { content:''; position:absolute; inset:12px; border:1px solid rgb(196 170 120 / .17); border-radius:inherit }
+.impressao h1 { width:fit-content; margin:clamp(125px,15vw,250px) 0 24px; font:400 clamp(90px,10.8vw,198px)/.85 var(--serif); letter-spacing:-.065em; color:var(--light) }
+.impressao h1 em { display:inline-block; margin-left:.62em; font-style:normal; color:var(--lavender) }
+.impressao-rodape { border-top:1px solid rgb(232 235 233 / .32); padding-top:18px; font:400 clamp(14px,1.1vw,18px)/1.5 var(--sans) }
+.impressao-rodape p { margin:0 }
+.impressao-rodape .line-link { margin:0; color:var(--light) }
+.prova-de-gestos { padding:20px 7vw; background:var(--light); color:var(--night) }
+.gestos-titulo { font:500 clamp(18px,1.7vw,32px)/1 var(--serif); margin-right:auto }
+.gesto-amostra { display:flex; align-items:center; gap:8px; font:600 10px/1.4 var(--sans); letter-spacing:.09em; text-transform:uppercase }
+.gesto-amostra img { width:clamp(27px,3vw,48px); height:auto }
+.editorial-home .chapter-rail { display:none }
+.editorial-home .work-collection .section-heading { align-items:end; border-bottom:1px solid var(--line); padding-bottom:clamp(22px,3vw,48px) }
+.editorial-home .studio-language { position:relative; overflow:hidden; isolation:isolate }
+.editorial-home .studio-language::before { content:''; position:absolute; inset:0 0 0 49%; background:url('/brand/oficio/nervura-modulo.svg') 0 0/120px; opacity:.09; z-index:-1 }
+.editorial-home .studio-observatory { outline:1px solid var(--line); outline-offset:8px }
+@media(max-width:900px){.gesto-amostra { flex-direction:column; gap:3px }.prova-de-gestos { gap:10px }.impressao-garra { top:-4%; width:78% }}
+@media(max-width:600px){
+ .impressao { padding-top:65px }
+ .impressao-campo { min-height:clamp(495px,73svh,690px); padding:25px 6vw }
+ .impressao-indice { inset:24px 6vw auto; font-size:9px }
+
+ .impressao-garra { width:125%; top:12%; right:-29%; transform:rotate(-13deg) }
+ .impressao-orbita { width:110%; right:-20%; top:-27% }
+ .impressao h1 { font-size:clamp(64px,15.2vw,92px); margin:218px 0 21px }
+ .impressao h1 em { margin-left:.37em }
+ .impressao-rodape { align-items:flex-start; gap:14px; font-size:13px; padding-top:14px }
+ .impressao-rodape p { max-width:18ch }
+ .impressao-rodape .line-link { white-space:nowrap; font-size:12px }
+ .prova-de-gestos { padding:14px 5vw; gap:5px }.gestos-titulo { display:none }
+ .gesto-amostra { font-size:8px; letter-spacing:.03em }
+}
+.editorial-home .work-collection .section-heading { position:relative; padding:clamp(36px,6vw,95px) var(--page-gutter); margin-inline:calc(-1 * var(--page-gutter)); margin-bottom:clamp(28px,4vw,64px); color:var(--night); background:var(--light); border-top:1px solid rgb(9 19 33 / .26) }
+.editorial-home .work-collection { padding-top:0 }
+.editorial-home .work-collection .section-heading :is(.eyebrow,.section-description,h2) { color:var(--night) }
+.editorial-home .work-collection .section-heading h2 em { color:var(--purple) }
+.editorial-home .author { padding:clamp(38px,7vw,112px) var(--page-gutter); background:var(--light); color:var(--night); max-width:none; width:100% }
+.editorial-home .author :is(.eyebrow,p,h2,.quiet-link) { color:var(--night) }
+.editorial-home .author h2 em { color:var(--purple) }
+.autor-assina img { width:clamp(65px,8vw,145px); margin-top:2rem }
+.editorial-home .contact-section { position:relative; isolation:isolate; background:var(--blue) }
+.editorial-home .contact-section::before { content:''; position:absolute; z-index:-1; right:-8%; top:-9%; width:43%; height:112%; background:url('/brand/oficio/junta-da-asa.webp') no-repeat right top/contain; opacity:.8; pointer-events:none }
+.editorial-home .contact-section h2 { max-width:65% }
+@media(max-width:760px){
+ .editorial-home .contact-section::before { width:36%; right:-12%; top:1%; opacity:.55 }
+ .editorial-home .contact-section h2 { max-width:86% }
+ .autor-assina { display:flex; justify-content:space-between; align-items:end; gap:14px }
+}
+.editorial-home .contact-section::before { left:auto }
+.editorial-home .author .author-grid p.big-copy { color:var(--night)!important }
+.editorial-home .work-collection .section-heading { box-shadow:0 0 0 100vmax var(--light); clip-path:inset(0 -100vmax) }
+
+/* A mesma abertura permite passar da matriz ao conjunto aplicado. */
+.mesa-cena { position:absolute; z-index:-1; inset:-7% -3% auto auto; width:64%; height:114%; object-fit:cover; object-position:center; mask-image:linear-gradient(90deg,transparent,#000 18%); transition:opacity .5s ease }
+.impressao-campo[data-prova="mesa"] { background:#30223d }
+.impressao-campo[data-prova="mesa"] .impressao-garra,.impressao-campo[data-prova="mesa"] .impressao-orbita,.impressao-campo[data-prova="gravura"] .mesa-cena { opacity:0; visibility:hidden }
+.impressao-garra { transition:opacity .5s ease }
+.impressao-campo[data-prova="mesa"] h1 { font-size:clamp(80px,8.7vw,166px) }
+.impressao-campo[data-prova="mesa"] h1 em { margin-left:.2em }
+.impressao-rodape { width:42%; align-items:end }
+.prova-seletor { width:fit-content; display:flex; gap:3px; z-index:2; position:absolute; top:clamp(66px,6vw,105px); left:7vw; border:1px solid #c5cfd24d; padding:3px; border-radius:30px }
+.prova-seletor button { font:600 11px/1 var(--sans); color:var(--light); border:0; background:none; border-radius:20px; padding:11px 16px; cursor:pointer }
+.prova-seletor button[aria-pressed=true] { background:var(--light);color:var(--night) }
+.prova-seletor button:focus-visible,.arquivo-legenda:focus-visible { outline:2px solid var(--lavender);outline-offset:3px }
+.editorial-home .work-collection .section-heading { box-shadow:none; clip-path:none; margin:0 auto; padding:clamp(28px,3.7vw,60px) 0; background:var(--night); color:var(--light); gap:6%; border:0 }
+.editorial-home .work-collection .section-heading :is(.eyebrow,.section-description,h2) { color:var(--light) }
+.editorial-home .work-collection .section-heading h2 { font-size:clamp(45px,5.3vw,84px) }
+.editorial-home .work-collection .section-heading h2 em { color:var(--lavender) }
+.mostra-cliente { position:relative; overflow:hidden; height:100%; min-height:420px; isolation:isolate }
+.mostra-cliente img { position:absolute; height:auto; max-width:none; box-shadow:0 3px 5px #0004,0 14px 30px #0005 }
+.mostra-ct { background:#b6c1c8 }
+.mostra-ct::before { content:'';position:absolute; inset:0; background:#8398a7;clip-path:polygon(0 75%,100% 30%,100% 100%,0 100%) }
+.ct-web { width:73%;top:10%;left:4%;transform:rotate(-5deg) }
+.ct-bolso { width:39%;right:3%;bottom:8%;transform:rotate(5deg) }
+.mostra-tdv { background:#b1a997 }
+.tdv-capa { width:39%; left:13%;top:12%;transform:rotate(-9deg);border:1px solid #4a4541 }
+.tdv-folha { width:39%;right:10%;top:8%;transform:rotate(8deg) }
+.editorial-home .brand-documents { background:var(--light); color:var(--night) }
+.editorial-home .brand-documents .section-heading :is(.eyebrow,h2,.section-description) { color:var(--night) }
+.editorial-home .brand-documents .section-heading h2 em { color:var(--purple) }
+.arquivo-legenda { display:flex; align-items:center; gap:clamp(12px,2vw,30px); text-align:left }
+.arquivo-legenda small { font:600 11px var(--sans); color:var(--blue) }
+.arquivo-legenda svg { flex:none; margin-left:auto; width:18px; height:18px }
+.editorial-home .arquivo-legenda h3 { margin:0; color:var(--night); font:500 clamp(23px,2.3vw,42px)/1.1 var(--serif) }
+.arquivo-legenda p { margin:5px 0 0; color:var(--blue); font:400 clamp(11px,.85vw,14px)/1.55 var(--sans) }
+.arquivo-pigmentos { position:absolute; display:flex; bottom:0; right:0; width:46%; height:13px; z-index:2 }
+.arquivo-pigmentos i { flex:1 }
+@media(min-width:761px) {
+ .editorial-home .brand-document-grid { display:grid;position:relative;grid-template-columns:1fr;gap:0;padding-left:52%;min-height:460px }
+ .editorial-home .brand-document-card { display:flex;position:static;align-items:center; padding:14px 0;min-height:76px;border-top:1px solid #123f4933;background:none;box-shadow:none;transform:none }
+ .editorial-home .brand-document-card:last-child { border-bottom:1px solid #123f4933 }
+ .editorial-home .brand-document-card .brand-document-image { position:absolute;inset:0 auto 0 0;width:47%;height:100%;pointer-events:none;opacity:0;transition:opacity .24s ease;overflow:hidden;border:0; border-radius:0 }
+ .editorial-home .brand-document-card:first-child .brand-document-image {opacity:1}
+ .editorial-home .brand-document-grid:has(a:is(:hover,:focus)) a:not(:hover,:focus) .brand-document-image {opacity:0}
+ .editorial-home .brand-document-grid a:is(:hover,:focus) .brand-document-image {opacity:1;z-index:2}
+ .editorial-home .brand-document-card:is(:hover,:focus-visible) .arquivo-legenda h3 {color:var(--purple); text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.16em}
+ .arquivo-legenda { width:100% }
+}
+.editorial-home .document-card-glifo .brand-document-image img { width:100%;height:100%;max-height:none;max-width:none;object-fit:cover;padding:0;transform:none }
+@media(max-width:760px) {
+ .impressao-campo { padding-top:clamp(300px,76vw,475px); min-height:0 }
+ .impressao-campo .mesa-cena { inset:0 0 auto; width:100%;height:clamp(310px,84vw,490px);object-position:50% 53%;mask-image:linear-gradient(#000 80%,transparent) }
+ .impressao-campo[data-prova="mesa"] h1,.impressao-campo h1 { margin:16px 0 18px;font-size:clamp(57px,13vw,98px) }
+ .impressao-campo[data-prova="gravura"] .impressao-garra { top:5%;width:104%;right:-17% }
+ .impressao-indice { position:static;inset:auto; }
+ .prova-seletor { top:12px;left:12px;background:var(--night);border-color:var(--line) }
+ .prova-seletor button { font-size:10px;padding:10px 13px }
+ .impressao-rodape { width:100% }
+ .editorial-home .work-collection .section-heading {padding:32px 0 24px}
+ .editorial-home .work-collection .section-description { max-width:36ch }
+ .mostra-cliente {min-height:0;aspect-ratio:1.32;height:auto}
+ .arquivo-legenda { margin-top:14px }
+ .editorial-home .brand-documents .mobile-shelf-navigation {color:var(--night)}
+ .editorial-home .brand-documents .mobile-shelf-navigation button {color:var(--night);border-color:#123f4960}
+}
+@media(prefers-reduced-motion:reduce){.mesa-cena,.impressao-garra,.editorial-home .brand-document-card .brand-document-image{transition:none}}
+.editorial-home .desktop-nav {border-color:transparent;background:transparent}
+.editorial-home .studio-language::before { inset:0;opacity:.14;background:url('/brand/oficio/perfil-do-vigia.webp') no-repeat -7vw 18%/37vw }
+.editorial-home .studio-language .studio-observatory { background:transparent; outline:0; border:0 }
+.editorial-home .process { background:var(--night) }
+.editorial-home .process .section-heading { border-bottom:1px solid var(--line);padding-bottom:24px;align-items:end }
+.editorial-home .process .section-heading h2 { font-size:clamp(48px,5.2vw,86px) }
+.process-panel .folha-processo { grid-column:1;grid-row:2; height:clamp(205px,18vw,320px);margin:0;display:grid;place-items:center;background:#23434a;overflow:hidden }
+.folha-processo img { height:90%;width:80%;object-fit:contain;filter:drop-shadow(3px 6px 4px #0005);transform:rotate(-6deg) translateY(8%) }
+.process-panel:nth-child(2) .folha-processo {background:#59466b}
+.process-panel:nth-child(3) .folha-processo {background:#aa956e}
+.process-panel .process-points {grid-column:2;grid-row:1 / span 2;align-self:start}
+.editorial-home .process-panel { gap:20px 8%;padding-top:34px }
+.editorial-home .process-story { padding-left:0 }
+.editorial-home .process-folio {display:none}
+@media(min-width:901px) {
+ .editorial-home .process-workbench {display:grid;grid-template-columns:minmax(135px,.65fr) minmax(0,3fr);column-gap:5%}
+ .editorial-home .process-tabs { display:flex;flex-direction:column;align-self:start;border:0 }
+ .editorial-home .process-tabs button,.editorial-home .process-tabs button+button {padding:18px 8px 18px 0;border-bottom:1px solid var(--line);grid-template-columns:auto 1fr}
+ .editorial-home .process-coordinate {grid-column:1;grid-row:1/span 2;margin:0 14px 0 0;font-size:0;gap:0}
+ .editorial-home .process-coordinate i,.editorial-home .process-tabs button>.vector-icon {display:none}
+ .editorial-home .process-tabs small {grid-column:2}
+ .editorial-home .process-step-name { font-size:clamp(28px,2.6vw,46px) }
+ .editorial-home .process-endnote { grid-column:1/-1 }
+}
+@media(max-width:760px) {
+ .process-panel .folha-processo,.process-panel .process-points {grid-column:1;grid-row:auto}
+ .process-panel .folha-processo {height:180px}
+ .editorial-home .studio-language::before {background-size:90vw;background-position:50vw -10%}
+ .editorial-home .brand-documents .mobile-shelf-navigation small {color:var(--blue)}
+}

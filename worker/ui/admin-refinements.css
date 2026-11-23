@@ -11,3 +11,9 @@
 .nav-drawer .sidebar nav{grid-template-columns:minmax(0,1fr)!important}.nav-drawer .sidebar nav button{flex-direction:row!important;align-items:center!important;gap:12px;min-height:44px}.nav-drawer .nav-group-label{grid-column:1/-1}.nav-drawer .brand{height:90px!important}.nav-drawer .sidebar-foot{font-size:11px;margin-top:20px}
 
 .task-toggle{display:grid;place-items:center;width:44px;min-height:44px;margin:0;flex:none;cursor:pointer}.task-toggle input{width:20px;height:20px;min-height:20px;margin:0!important}@media(max-width:700px){.task{grid-template-columns:44px minmax(0,1fr)}.task>.task-toggle{grid-column:1;align-self:start}}
+
+/* A bancada acompanha a entrada; o espaço de edição conserva a área de leitura. */
+.login .login-art {background:linear-gradient(0deg,#091321f2,#0913218c 56%,#09132152),url('/brand/oficio/matriz-latao.webp') 64% 50%/cover;padding:clamp(24px,4vw,58px);isolation:isolate}
+.login .login-art::before,.login .login-art::after {pointer-events:none}
+.sidebar .brand {border-bottom:1px solid #c4aa7850}
+.sidebar nav button[aria-current="page"] .nav-icon {color:#e0c698}

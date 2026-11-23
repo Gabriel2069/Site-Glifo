@@ -5,7 +5,7 @@ test('observatory keeps an intact mark, bounded depth and manual control',async(
  await expect(lens).toHaveClass(/spatial-ready/);await expect(range).toBeVisible();
  await range.focus();await range.press('ArrowRight');await expect(page.locator('[data-lens-value]')).toHaveText('1°');
  await page.getByRole('button',{name:'Emblema',exact:true}).click();await expect(page.getByRole('button',{name:'Emblema',exact:true})).toHaveAttribute('aria-pressed','true');
- await expect(page.locator('.hero .griff-ghost')).toHaveAttribute('src','/brand/symbol.png');
+ await expect(page.locator('.hero .griff-ghost')).toHaveAttribute('src','/brand/oficio/emblema-do-grifo-lunar.svg');
  for(const width of [320,390,768,1440]){await page.setViewportSize({width,height:900});await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();}
  if(process.env.GLIFO_VISUAL_PROOF==='true'){
   if(testInfo.project.name==='mobile')await page.setViewportSize({width:390,height:844});

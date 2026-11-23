@@ -1,0 +1,90 @@
+/* A mesma posição do relógio conduz a luz, o enquadramento e o seletor. */
+.impressao-campo { --andamento:0 }
+.prova-seletor [data-vista] { position:relative;overflow:hidden }
+.prova-seletor [data-vista][aria-pressed=true]::after {content:'';position:absolute;bottom:3px;left:13%;width:74%;height:2px;background:#755d3b;transform-origin:left;transform:scaleX(var(--andamento))}
+.prova-seletor [data-impressao-play] {display:grid;place-items:center;width:34px;padding:0;border-left:1px solid #eee4;border-radius:0 30px 30px 0}
+.prova-seletor [hidden] {display:none}
+[data-impressao-play] span {width:8px;height:10px;border-inline:2px solid currentColor}
+[data-impressao-play][data-paused=true] span {width:0;height:0;border:5px solid transparent;border-left:8px solid currentColor;border-right:0}
+@media(prefers-reduced-motion:no-preference){
+ html:not(.motion-paused) .matriz-cena img {scale:calc(1.02 + var(--andamento)*.045);transform-origin:52% 55%}
+ html:not(.motion-paused) .mesa-cena {scale:calc(1.055 - var(--andamento)*.05);transform-origin:75% 59%}
+ html:not(.motion-paused) .impressao-garra {translate:calc(var(--andamento)*-2.5%) calc(var(--andamento)*3%)}
+}
+.impressao-campo :is(.mesa-cena,.impressao-garra) {transition:none}
+
+/* Duas escalas para olhar cada caso: uma peça inteira e um recorte ampliável. */
+.case-study .plate-spread {display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:stretch;isolation:isolate;padding:clamp(20px,4vw,64px) var(--page-gutter);gap:clamp(9px,1.5vw,28px);background:linear-gradient(116deg,var(--plate-tone) 0 43%,color-mix(in srgb,var(--plate-tone),#07101a 38%) 43% 100%)}
+.case-study .case-opening .plate .project-art {width:100%;height:clamp(270px,35vw,580px);min-height:0;border:1px solid #eee2;box-shadow:0 8px 20px #0002}
+.plate-detail {position:relative;isolation:isolate;overflow:hidden;align-self:stretch;border:1px solid #eee3;background:#15232c;color:white;padding:0;text-align:left;cursor:zoom-in}
+.plate-detail>img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:scale .65s var(--ease);z-index:-1}
+.plate-detail>span {display:flex;align-items:center;justify-content:space-between;gap:12px;position:absolute;bottom:0;inset-inline:0;background:linear-gradient(transparent,#060c16d9 85%);padding:42px 16px 14px;color:white;font:600 clamp(11px,1vw,15px)/1.4 var(--sans)}
+.plate-detail .vector-icon {width:19px;flex:none}
+.plate-detail:is(:hover,:focus-visible)>img {scale:1.055}
+.plate-glifo .plate-spread,.plate-tdv-editorial .plate-spread {grid-template-columns:minmax(0,2fr) minmax(0,3fr)}
+.plate-glifo .plate-detail>img {object-position:70% 55%}
+.plate-tdv-editorial .plate-detail>img {object-position:40% 50%}
+.plate-nexos .plate-detail>img,.plate-tadeon .plate-detail>img {width:175%;max-width:none;object-position:15% 50%}
+.plate-nexos .plate-detail>img {left:auto;right:0;object-position:right center}
+.case-study .case-opening .plate>figcaption {font-size:11px}
+.work-directory .work-intro {position:relative;isolation:isolate}
+.work-directory .work-intro::before {content:'';position:absolute;inset:0 0 0 45%;background:url('/brand/oficio/nervura-modulo.svg') 75% 42%/clamp(150px,18vw,260px);opacity:.08;z-index:-1;pointer-events:none;clip-path:polygon(27% 0,100% 0,100% 100%,0 100%)}
+.work-directory .project-card:is(:hover,:focus-visible) .work-card-meta {color:var(--light)}
+.identity-directory .page-intro {padding-bottom:clamp(36px,6vw,95px)}
+.cartela-indice {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));max-width:660px;margin-top:32px;border-top:1px solid var(--line);padding-top:16px}
+.cartela-indice a {min-width:0;display:block;padding:5px 8px 5px 0}
+.cartela-indice a>span,.tira-de-cor {display:flex;height:16px}
+.cartela-indice i,.tira-de-cor i {flex:1}
+.cartela-indice b {display:block;font:600 10px/1.4 var(--sans);padding-top:6px}
+.cartela-indice a:is(:hover,:focus-visible) span {translate:0 -4px}
+.cartela-indice a span {transition:translate .3s}
+.identity-board .identity-cover-art {border:1px solid var(--board-line);border-bottom:0;box-shadow:7px 7px 0 var(--board-surface),8px 8px 0 var(--board-line)}
+.tira-de-cor {position:absolute;inset:auto 0 0;height:8px}
+.tira-de-cor i {transition:flex-grow .35s}
+.identity-board .identity-local-nav a:is(:hover,:focus-visible) {color:var(--board-accent)}
+.identity-board .identity-section-title {border-top:1px solid var(--board-line);padding-top:20px}
+.bio-page {background:var(--night)}
+.bio-page .bio-sky {background:linear-gradient(90deg,#09132140,#091321db 67%),url('/brand/oficio/matriz-latao.webp') 62% 50%/cover;opacity:.5}
+.bio-page .bio-sky svg {opacity:.23}
+.bio-page .bio-links a {backdrop-filter:blur(12px)}
+.not-found {isolation:isolate;overflow:clip;position:relative;background:var(--purple);min-height:75svh}
+.not-found .gravura-perdida {position:absolute;z-index:-1;right:-8%;top:12%;width:55%;height:90%;object-fit:contain;opacity:.72;rotate:14deg}
+.not-found .quiet-link {margin:1rem}
+@media(max-width:760px){
+ .case-study .plate-spread {grid-template-columns:minmax(0,1fr);gap:8px;padding:16px var(--page-gutter) 18px}
+ .case-study .case-opening .plate .project-art {height:clamp(240px,70vw,420px)}
+ .plate-detail {min-height:clamp(135px,39vw,220px)}
+ .plate-glifo .plate-detail>img {object-position:65% 50%}
+ .cartela-indice {grid-template-columns:repeat(3,minmax(0,1fr));row-gap:9px}
+ .not-found .gravura-perdida {opacity:.26;width:90%}
+}
+@media(prefers-reduced-motion:reduce){
+ .plate-detail>img,.cartela-indice a span {transition:none}
+ .plate-detail:is(:hover,:focus-visible)>img {scale:1}
+}
+
+/* O título é o ponto fixo enquanto a câmera atravessa as peças. */
+.impressao .impressao-campo[data-prova] h1 {font-size:clamp(90px,9.8vw,179px);line-height:.83;margin-bottom:30px}
+.impressao .impressao-campo[data-prova] h1 em {margin-left:.22em}
+.reflexo-da-matriz {display:none}
+@media(prefers-reduced-motion:no-preference){
+ html:not(.motion-paused) [data-prova="matriz"] .reflexo-da-matriz {display:block;position:absolute;pointer-events:none;inset:0 0 0 37%;mix-blend-mode:soft-light;z-index:-1;background:linear-gradient(109deg,transparent 32%,#f6e8b1aa 42%,#ffe1ac 44%,transparent 55%) no-repeat;background-size:155% 100%;background-position:calc(220% - var(--andamento)*360%) center}
+}
+.indice-amostras {display:flex;flex-direction:column;gap:24px;min-width:0}
+.indice-papeis {position:relative;height:clamp(165px,18vw,280px);margin-inline:5%;isolation:isolate}
+.indice-papeis img {position:absolute;inset:10% auto 10% 4%;width:48%;height:80%;object-fit:cover;object-position:top;rotate:-12deg;box-shadow:2px 8px 14px #0005;border:1px solid #adb5b149}
+.indice-papeis img:nth-child(2){left:26%;rotate:-2deg;top:3%}
+.indice-papeis img:last-child {left:46%;rotate:11deg;top:16%}
+.identity-directory .cartela-indice {grid-column:1/-1;width:100%;max-width:none;margin-top:12px}
+.identity-board .identity-cover-art {overflow:visible;margin-bottom:14px}
+.identity-board .identity-cover-art .amostra-aplicada {display:flex;align-items:center;position:absolute;z-index:1;bottom:14px;right:12px;width:clamp(98px,8vw,140px);height:46px;padding:3px;border:1px solid var(--board-line);background:var(--board-surface);color:var(--board-paper);box-shadow:0 3px 9px #0002;rotate:-3deg;transition:rotate .3s,translate .3s}
+.identity-cover-art .amostra-aplicada img {width:35%;height:100%;object-fit:cover;object-position:top}
+.amostra-aplicada span {display:flex;gap:2px;align-items:center;margin:auto;font:600 9px/1 var(--sans)}
+.amostra-aplicada .vector-icon {width:10px}
+.identity-cover-art .amostra-aplicada:is(:hover,:focus-visible){rotate:0deg;translate:0 -4px}
+@media(max-width:760px){
+ .impressao .impressao-campo[data-prova] h1 {font-size:clamp(59px,13.8vw,107px);margin:15px 0 16px}
+ .indice-amostras {display:grid;grid-template-columns:minmax(70px,1fr) minmax(0,1.4fr);align-items:center;gap:14px;margin:24px 0}
+ .indice-papeis {height:clamp(86px,22vw,145px)}
+ .indice-amostras .directory-description {margin:0}
+}

@@ -14,7 +14,7 @@ export const projects:Project[] = [{
   categories: ['Identidade', 'Direção visual', 'Digital'],
   lead: 'O desenho participa do que uma mensagem diz.',
   summary: 'Identidade autoral inspirada nos glifos, nas constelações e na relação entre um desenho e aquilo que ele permite compreender.',
-  image: '/brand/logo.png', board:'glifo', kind:'mark', theme:'glifo',
+  image: '/brand/oficio/assinatura-glifo-lunar.svg', board:'glifo', kind:'mark', theme:'glifo',
   scope:['Conceito e identidade','Assinaturas','Linguagem visual','Experiência digital'],status:'Projeto autoral em desenvolvimento',
   alt: 'Assinatura final da Glifo, em cinza-azulado, com detalhes alados.',
 }, {

@@ -77,10 +77,8 @@ const media=gsap.matchMedia();
 media.add('(prefers-reduced-motion: no-preference)',()=>{
  const hero=document.querySelector('.hero');
  if(hero){
-  gsap.fromTo('.hero-description',{opacity:.65},{opacity:1,duration:1.2,ease:'power2.out'});
   const path=document.querySelector<SVGPathElement>('.hero .griff-lines path');
   if(path){const length=path.getTotalLength();gsap.fromTo(path,{strokeDasharray:length,strokeDashoffset:length},{strokeDashoffset:0,duration:1.7,ease:'power2.inOut',delay:.1,clearProps:'strokeDasharray,strokeDashoffset'});}
-  loops.push(gsap.to('.hero-nebula',{scale:1.06,duration:24,repeat:-1,yoyo:true,ease:'sine.inOut'}));
  }
  updateMotion();
  return ()=>{for(const tween of loops)tween.kill();loops.length=0;};
@@ -216,8 +214,6 @@ media.add('(prefers-reduced-motion: no-preference)',()=>{
  opening.fromTo('.hero .celestial-dial',{rotation:-18,opacity:.1},{rotation:0,opacity:.48,duration:2.5,ease:'power3.out'},0);
  const dial=document.querySelector('.hero .orbit-b');
  if(dial)loops.push(gsap.to(dial,{rotation:360,duration:180,repeat:-1,ease:'none'}));
- gsap.to('.hero .griff-scene',{y:65,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
- gsap.to('.hero-copy',{y:-35,scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:1}});
  }
  const myth=document.querySelector<SVGPathElement>('.myth-constellation');
  if(myth){const length=myth.getTotalLength();gsap.fromTo(myth,{strokeDasharray:length,strokeDashoffset:length},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'.myth',start:'top 80%',end:'center 50%',scrub:1}});}
@@ -352,7 +348,7 @@ const projectTabs=Array.from(document.querySelectorAll<HTMLButtonElement>('[data
 let collectionTransition:gsap.core.Timeline|undefined;
 const settleCollection=()=>{
  collectionTransition?.progress(1).kill();
- document.querySelectorAll<HTMLElement>('.collection-panel').forEach(panel=>{gsap.set(panel,{clearProps:'opacity,transform'});gsap.set(panel.querySelectorAll('.project-art,.collection-caption'),{clearProps:'opacity,transform,clipPath'});});
+ document.querySelectorAll<HTMLElement>('.collection-panel').forEach(panel=>{gsap.set(panel,{clearProps:'opacity,transform'});gsap.set(panel.querySelectorAll('.vitrine-pecas,.collection-caption'),{clearProps:'opacity,transform,clipPath'});});
 };
 rotationRefresh.push(()=>{if(paused||reduced.matches)settleCollection();});
 function selectProject(index:number,focus=false){
@@ -364,9 +360,9 @@ function selectProject(index:number,focus=false){
  });
  const panel=document.getElementById(projectTabs[index]?.getAttribute('aria-controls')||'');
  if(panel&&!paused&&!reduced.matches){
-  collectionTransition=gsap.timeline({defaults:{ease:'power3.out'},onComplete:()=>{gsap.set(panel,{clearProps:'opacity'});gsap.set(panel.querySelectorAll('.project-art,.collection-caption'),{clearProps:'opacity,transform,clipPath'});}})
+  collectionTransition=gsap.timeline({defaults:{ease:'power3.out'},onComplete:()=>{gsap.set(panel,{clearProps:'opacity'});gsap.set(panel.querySelectorAll('.vitrine-pecas,.collection-caption'),{clearProps:'opacity,transform,clipPath'});}})
    .fromTo(panel,{opacity:.4},{opacity:1,duration:.4},0)
-   .fromTo(panel.querySelector('.project-art'),{x:18,clipPath:'inset(0% 0% 0% 8%)'},{x:0,clipPath:'inset(0% 0% 0% 0%)',duration:.7},0)
+   .fromTo(panel.querySelector('.vitrine-pecas'),{x:18,clipPath:'inset(0% 0% 0% 8%)'},{x:0,clipPath:'inset(0% 0% 0% 0%)',duration:.7},0)
    .fromTo(panel.querySelector('.collection-caption'),{y:14,opacity:.35},{y:0,opacity:1,duration:.55},.12);
  }
 }

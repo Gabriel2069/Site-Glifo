@@ -1,5 +1,15 @@
 # Glifo
 
+## Edição de fechamento · Identidade vigente
+
+A abertura alterna entre uma mesa de ateliê, composta a partir das aplicações aprovadas, e a Garra suspensa em escala de cartaz. A pessoa escolhe o enquadramento. A seleção de cadernos usa foco e ponteiro para revelar a prancha e os pigmentos no desktop. No celular, cada capa acompanha seu título na faixa horizontal. A tira de seis gestos abre a seção clara do portfólio. A Junta da asa fecha o percurso sobre petróleo. As seis cores da prancha são azul-tinta, violeta, petróleo, prata, lunar e latão. Almendra conduz os títulos e Manrope acompanha a leitura. As assinaturas, glifos e superfícies em `public/brand/oficio` vêm do kit aprovado. Os registros celestes abaixo documentam a evolução do site. A constelação interativa continua no caso Glifo.
+
+## Gravura, matéria e luz
+
+A abertura tem três enquadramentos. A matriz de latão é um estudo 3D do Perfil do Vigia, composto com as peças oficiais. A lupa amplia o ponto sob o ponteiro. A prova frontal aceita luz rasante pelo controle de faixa, pelo teclado ou pelo movimento do mouse. A mesa e a gravura conservam suas composições. Os gestos da sanfona levam à etapa correspondente do processo.
+
+Cada vitrine apresenta peças da marca em sua própria combinação de cor. As margens do relato alternam olho, penas e cauda conforme o capítulo. O lenço de ofício encerra o contato com três segundos de movimento ao entrar na tela. A preferência por movimento reduzido mantém a imagem estática. Os estudos da matriz e do tecido são simulações digitais.
+
 ## Direção
 
 Os glifos são o centro da marca: formas visíveis que participam da construção de sentido. As constelações oferecem uma imagem para a relação entre os sinais. O grifo é um glifo representativo, escolhido pelo jogo entre os nomes e pela figura mitológica; não resume a essência da Glifo. Universo celestial e editorial, com apresentação autoral conduzida por Gabriel Tadeu. A navegação deve demonstrar relações e cuidado, preservando leitura e acesso direto aos trabalhos.
