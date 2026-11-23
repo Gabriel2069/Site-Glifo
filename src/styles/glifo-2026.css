@@ -1,0 +1,457 @@
+/*
+ * Glifo / identidade 2026
+ * Transição editorial controlada: o desenho de ofício substitui
+ * a fantasia literal sem apagar a arquitetura e as interações existentes.
+ * Fonte: Glifo IDV / Glifo_Caderno_Final.pdf e assets oficiais de 22/11/2026.
+ * Escopo inicial: vitrine e primeira página; não altera o Studio privado.
+ */
+.site-header{
+  border-bottom:1px solid color-mix(in srgb,var(--glifo-silver) 24%,transparent);
+  background:color-mix(in srgb,var(--glifo-ink) 94%,transparent);
+  backdrop-filter:blur(16px);
+}
+.site-header .brand>span{letter-spacing:.14em}
+.site-header .contact-link{border-color:color-mix(in srgb,var(--glifo-brass) 56%,transparent)}
+.editorial-home .editorial-opening{
+  min-height:760px;
+  height:100svh;
+  max-height:1080px;
+  background:var(--glifo-ink);
+}
+.editorial-home .editorial-opening::before{
+  content:"";
+  position:absolute;
+  right:-2%;
+  top:10%;
+  width:min(30vw,410px);
+  aspect-ratio:320/225;
+  background:url('/brand/2026/limiar-canto.svg') center/contain no-repeat;
+  opacity:.085;
+  pointer-events:none;
+  z-index:0;
+}
+.editorial-home .editorial-opening::after{
+  background:linear-gradient(180deg,transparent 76%,var(--glifo-ink));
+  z-index:-1;
+}
+.editorial-home .editorial-opening .hero-nebula{
+  opacity:.12;
+  filter:grayscale(1);
+  background-position:55% 45%;
+}
+.editorial-home .editorial-opening .sky{opacity:.15}
+.editorial-home .editorial-opening .hero-inner{
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(340px,.88fr);
+  grid-template-rows:auto auto auto auto;
+  gap:18px clamp(28px,5vw,94px);
+  align-content:center;
+  align-items:center;
+  height:100%;
+  padding-top:126px;
+  padding-bottom:116px;
+}
+.editorial-home .editorial-opening .hero-copy{
+  position:relative;
+  top:auto;
+  left:auto;
+  right:auto;
+  grid-column:1;
+  grid-row:1;
+  pointer-events:none;
+}
+.editorial-home .editorial-opening .hero-copy>.eyebrow{
+  color:var(--glifo-brass);
+  font-size:10px;
+  letter-spacing:.155em;
+  margin-bottom:23px;
+}
+.editorial-home .editorial-opening h1{
+  font-size:clamp(72px,8.4vw,152px);
+  line-height:.94;
+  letter-spacing:-.045em;
+  max-width:780px;
+  font-weight:400;
+}
+.editorial-home .editorial-opening h1>.hero-title-lead{
+  margin-left:0;
+  color:var(--glifo-lunar);
+}
+.editorial-home .editorial-opening h1>.hero-title-tail{
+  margin-left:0;
+  white-space:normal;
+  color:var(--glifo-silver);
+}
+.editorial-home .editorial-opening .griff-scene{
+  position:relative;
+  top:auto;
+  left:auto;
+  right:auto;
+  grid-column:2;
+  grid-row:1 / 5;
+  align-self:center;
+  justify-self:center;
+  width:min(100%,560px);
+  max-width:560px;
+  height:auto;
+  aspect-ratio:1;
+  margin:0;
+  z-index:1;
+}
+.editorial-home .editorial-opening .griff-ghost{opacity:.27}
+.editorial-home .editorial-opening .lens-atmosphere{
+  background:
+    radial-gradient(ellipse at 45% 35%,color-mix(in srgb,var(--glifo-petroleo) 42%,transparent),transparent 67%),
+    radial-gradient(ellipse at 65% 65%,color-mix(in srgb,var(--glifo-violet) 34%,transparent),transparent 70%);
+}
+.editorial-home .editorial-opening .hero-description{
+  position:relative;
+  top:auto;
+  bottom:auto;
+  left:auto;
+  right:auto;
+  grid-column:1;
+  grid-row:2;
+  max-width:450px;
+  margin:0;
+  font-size:15px;
+  line-height:1.75;
+  color:var(--glifo-silver);
+  z-index:2;
+}
+.editorial-home .editorial-opening .hero-description>p{max-width:48ch}
+.editorial-home .editorial-opening .hero-service-link{
+  color:var(--glifo-brass);
+  margin-top:8px;
+  font-size:11px;
+  gap:14px;
+}
+.editorial-home .editorial-opening .hero-entry{
+  position:relative;
+  bottom:auto;
+  right:auto;
+  left:auto;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px 33px;
+  grid-column:1;
+  grid-row:3;
+  margin:0;
+  z-index:2;
+}
+.editorial-home .editorial-opening .hero-entry>.line-link{
+  display:inline-flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:22px;
+  border-bottom:1px solid var(--glifo-brass);
+  padding:11px 0;
+  font-size:12px;
+  min-height:45px;
+}
+.editorial-home .editorial-opening .hero-document-link{
+  font-size:11px;
+  min-height:44px;
+  color:var(--glifo-silver);
+  gap:12px;
+}
+.editorial-home .editorial-opening .hero-definition{
+  position:relative;
+  top:auto;
+  right:auto;
+  bottom:auto;
+  left:auto;
+  grid-column:1;
+  grid-row:4;
+  max-width:410px;
+  margin:15px 0 0;
+  padding:17px 0 0 65px;
+  border-left:0;
+  border-top:1px solid var(--line);
+  color:var(--glifo-silver);
+  font-size:11px;
+  min-height:60px;
+}
+.editorial-home .editorial-opening .hero-definition::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:13px;
+  width:48px;
+  height:48px;
+  background:var(--glifo-brass);
+  -webkit-mask:url('/brand/2026/avistar.svg') center/contain no-repeat;
+  mask:url('/brand/2026/avistar.svg') center/contain no-repeat;
+}
+.editorial-home .editorial-opening .hero-definition>span{
+  color:var(--glifo-brass);
+  letter-spacing:.16em;
+}
+.editorial-home .editorial-opening .hero-definition p{
+  margin:4px 0 0;
+  line-height:1.55;
+}
+.editorial-home .editorial-opening .hero-bottom{
+  border-top-color:color-mix(in srgb,var(--glifo-silver) 30%,transparent);
+  color:var(--glifo-silver);
+  font-size:9px;
+  letter-spacing:.12em;
+}
+.editorial-home .work-collection{
+  background:var(--glifo-ink);
+  padding-block:clamp(90px,10vw,156px);
+}
+.editorial-home .work-collection>.section-heading{
+  margin-bottom:48px;
+}
+.editorial-home .work-collection h2{
+  font-size:clamp(52px,6.8vw,104px);
+  line-height:.98;
+}
+.editorial-home .collection-layout{
+  border-top-color:color-mix(in srgb,var(--glifo-silver) 30%,transparent);
+}
+.editorial-home .collection-panel{
+  background:color-mix(in srgb,var(--glifo-ink) 87%,var(--glifo-petroleo));
+  min-height:520px;
+}
+.editorial-home .collection-panel .project-art{min-height:520px}
+.editorial-home .collection-project-name{color:var(--glifo-brass)}
+.editorial-home .collection-tabs button{
+  border-color:var(--line);
+  min-height:114px;
+}
+.editorial-home .collection-tabs button[aria-selected="true"]{
+  background:color-mix(in srgb,var(--glifo-violet) 38%,var(--glifo-ink));
+  color:var(--glifo-lunar);
+}
+.editorial-home .collection-tabs button[aria-selected="true"]::after{
+  background:var(--glifo-brass);
+}
+.editorial-home .editorial-passage{
+  background:var(--glifo-lunar);
+  color:var(--glifo-ink);
+  padding-block:clamp(88px,10vw,145px);
+}
+.editorial-home .editorial-passage::before{
+  content:"";
+  position:absolute;
+  right:0;
+  top:2%;
+  width:min(31vw,380px);
+  aspect-ratio:320/225;
+  background:url('/brand/2026/limiar-canto.svg') center/contain no-repeat;
+  opacity:.20;
+  pointer-events:none;
+}
+.editorial-home .editorial-passage>.eyebrow{color:var(--glifo-petroleo)}
+.editorial-home .myth-theatre{
+  border-top:1px solid var(--line);
+  background:var(--glifo-ink);
+}
+.editorial-home .myth-stage{
+  max-height:650px;
+  background:var(--glifo-ink);
+}
+.editorial-home .myth-landscape{
+  opacity:.22;
+  filter:grayscale(1) saturate(.45);
+}
+.editorial-home .myth-stage-rune{opacity:.12}
+.editorial-home .myth-title-block>p:not(.eyebrow){max-width:48ch}
+.editorial-home .author{
+  background:var(--glifo-lunar);
+  color:var(--glifo-ink);
+  border-top:1px solid color-mix(in srgb,var(--glifo-ink) 20%,transparent);
+}
+.editorial-home .author .eyebrow,
+.editorial-home .author .quiet-link{color:var(--glifo-petroleo)}
+.editorial-home .author-grid p{color:var(--glifo-ink)}
+.editorial-home .author-grid .big-copy{color:var(--glifo-ink)}
+.editorial-home .contact-section{
+  background:
+    linear-gradient(112deg,color-mix(in srgb,var(--glifo-violet) 62%,var(--glifo-ink)),var(--glifo-ink) 75%);
+}
+.editorial-home .contact-section .contact-star{opacity:.035}
+.editorial-home .contact-section .glifo-action{
+  border-color:var(--glifo-brass);
+}
+@media(min-width:761px) and (max-width:1120px){
+  .editorial-home .editorial-opening .hero-inner{
+    grid-template-columns:minmax(0,1fr) minmax(270px,.9fr);
+    gap:14px 24px;
+  }
+  .editorial-home .editorial-opening h1{font-size:clamp(66px,9vw,115px)}
+  .editorial-home .editorial-opening .griff-scene{width:min(100%,470px)}
+}
+@media(max-width:760px){
+  .editorial-home .editorial-opening{
+    height:auto;
+    min-height:0;
+    max-height:none;
+  }
+  .editorial-home .editorial-opening::before{
+    top:14%;
+    right:-10%;
+    width:65%;
+    opacity:.055;
+  }
+  .editorial-home .editorial-opening .hero-inner{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto auto auto auto auto;
+    gap:18px;
+    height:auto;
+    padding-top:132px;
+    padding-bottom:36px;
+  }
+  .editorial-home .editorial-opening .hero-copy{
+    grid-column:1;
+    grid-row:1;
+  }
+  .editorial-home .editorial-opening h1{
+    font-size:clamp(60px,12.8vw,94px);
+    line-height:.99;
+    max-width:100%;
+  }
+  .editorial-home .editorial-opening .hero-copy>.eyebrow{
+    font-size:9px;
+    margin-bottom:22px;
+  }
+  .editorial-home .editorial-opening .griff-scene{
+    grid-column:1;
+    grid-row:2;
+    width:min(100%,350px);
+    height:296px;
+    aspect-ratio:auto;
+    margin:-5px auto 0;
+    padding-bottom:57px;
+  }
+  .editorial-home .editorial-opening .lens-assembly{
+    inset:0 0 57px;
+    height:auto;
+  }
+  .editorial-home .editorial-opening .hero-description{
+    grid-column:1;
+    grid-row:3;
+    max-width:42ch;
+    font-size:14px;
+    margin:0;
+  }
+  .editorial-home .editorial-opening .hero-entry{
+    grid-column:1;
+    grid-row:4;
+    display:flex;
+    align-items:center;
+    gap:10px 22px;
+    margin:0;
+  }
+  .editorial-home .editorial-opening .hero-definition{
+    display:block;
+    grid-column:1;
+    grid-row:5;
+    max-width:none;
+    margin:15px 0 0;
+  }
+  .editorial-home .editorial-opening .hero-bottom{
+    font-size:8px;
+    gap:12px;
+  }
+  .editorial-home .work-collection{padding-block:67px}
+  .editorial-home .work-collection h2{font-size:clamp(48px,11vw,75px)}
+  .editorial-home .collection-panel{min-height:0}
+  .editorial-home .collection-panel .project-art{min-height:310px}
+  .editorial-home .editorial-passage::before{width:45%;opacity:.12}
+}
+@media(max-width:375px){
+  .editorial-home .editorial-opening h1{font-size:clamp(54px,12.3vw,65px)}
+  .editorial-home .editorial-opening .hero-entry{flex-direction:column;align-items:flex-start}
+  .editorial-home .editorial-opening .hero-document-link{justify-self:start}
+}
+@media(prefers-reduced-motion:reduce){
+  .editorial-home .editorial-opening .hero-nebula{transform:none!important}
+}
+
+
+/* Documento da Glifo: não contamina identidades dos demais projetos. */
+.identity-glifo{
+  --board-surface:var(--glifo-ink);
+  --board-paper:var(--glifo-lunar);
+  --board-muted:var(--glifo-silver);
+  --board-line:color-mix(in srgb,var(--glifo-silver) 24%,transparent);
+  --board-accent:var(--glifo-brass);
+}
+.identity-glifo .identity-cover-art::before{
+  border:0;
+  border-radius:0;
+  transform:none;
+  inset:auto 4% 0 auto;
+  width:48%;
+  aspect-ratio:320/225;
+  background:url('/brand/2026/limiar-canto.svg') center/contain no-repeat;
+  opacity:.19;
+}
+.identity-glifo .identity-mark,
+.identity-glifo .identity-image-trigger{
+  border-color:var(--board-line);
+}
+.identity-glifo .identity-color button span{
+  background:var(--glifo-ink);
+  color:var(--glifo-lunar);
+  border-color:var(--glifo-silver);
+}
+.identity-glifo .glyph-officio{
+  background:color-mix(in srgb,var(--glifo-ink) 80%,var(--glifo-petroleo));
+  border-color:var(--board-line);
+  padding:clamp(18px,3vw,40px);
+}
+.identity-glifo .glyph-officio-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(8px,2vw,24px);
+  margin-bottom:23px;
+}
+.identity-glifo .glyph-officio-grid figure{
+  min-width:0;
+  margin:0;
+  background:var(--glifo-lunar);
+  color:var(--glifo-ink);
+  padding:22px 12px 17px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:9px;
+}
+.identity-glifo .glyph-officio-grid img{
+  display:block;
+  width:min(100%,118px);
+  aspect-ratio:1;
+  object-fit:contain;
+}
+.identity-glifo .glyph-officio-grid figcaption{
+  padding:0;
+  font:600 11px/1.5 var(--sans);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.identity-glifo .glyph-officio>p{
+  color:var(--glifo-silver);
+  text-align:left;
+  max-width:55ch;
+  font-size:12px;
+  line-height:1.75;
+}
+.identity-glifo .identity-material-grid>figure:first-child .identity-material{
+  background:var(--glifo-lunar);
+}
+.identity-glifo .identity-material-grid>figure:nth-child(2) .identity-material{
+  background:var(--glifo-ink);
+}
+@media(max-width:760px){
+  .identity-glifo .glyph-officio-grid{gap:7px}
+  .identity-glifo .glyph-officio-grid figure{padding:13px 6px 11px}
+  .identity-glifo .glyph-officio-grid figcaption{font-size:9px;letter-spacing:0}
+  .identity-glifo .glyph-officio-grid img{width:min(100%,86px)}
+}

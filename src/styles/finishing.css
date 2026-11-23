@@ -20,7 +20,7 @@
 .project-system-header{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:28px}
 .project-system-header h2{font-size:clamp(38px,4vw,62px);margin-top:16px}.project-system-header>p{max-width:390px;font-size:13px;color:var(--muted)}
 .project-system-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.project-system-grid article{position:relative;padding:30px;border:1px solid var(--line);background:linear-gradient(140deg,#243a6826,#7042b311)}
+.project-system-grid article{position:relative;padding:30px;border:1px solid var(--line);background:linear-gradient(140deg,#123F4926,#351F5311)}
 .project-system-grid article>span{font-size:11px;color:var(--lavender)}
 .project-system-grid h3{margin:24px 0 15px;font-size:30px}.project-system-grid p{font-size:13px;line-height:1.85;color:var(--muted)}
 .project-system-nexos .project-system-grid article:first-child{border-color:#87daec66;background:radial-gradient(ellipse at top left,#8adce322,transparent),#0b1021}
@@ -49,5 +49,5 @@
 /* Small routes carry the same care as the main invitation. */
 .site-footer nav a{position:relative;transition:color .25s}.site-footer nav a:after{content:'';position:absolute;left:0;right:0;bottom:4px;height:1px;background:var(--lavender);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}.site-footer nav a:is(:hover,:focus-visible){color:var(--lavender)}.site-footer nav a:is(:hover,:focus-visible):after{transform:scaleX(1)}
 .identity-index-item .quiet-link>.vector-icon,.case-related a h3>.vector-icon{transition:transform .35s var(--ease)}.identity-index-item:is(:hover,:focus-visible) .quiet-link>.vector-icon,.case-related a:is(:hover,:focus-visible) h3>.vector-icon{transform:translate(3px,-3px)}
-.work-directory .project-card:active{border-color:var(--lavender);box-shadow:inset 0 0 0 1px #b28cff55}
+.work-directory .project-card:active{border-color:var(--lavender);box-shadow:inset 0 0 0 1px #C4AA7855}
 @media(prefers-reduced-motion:reduce){.site-footer nav a,.site-footer nav a:after,.identity-index-item .quiet-link>.vector-icon,.case-related a h3>.vector-icon{transition:none}}
