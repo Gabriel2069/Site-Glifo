@@ -20,7 +20,8 @@ Deslocar a percepção da fantasia celestial literal para um ateliê autoral de 
 - `src/styles/glifo-2026.css` reorganiza a primeira dobra como composição tipográfica com observatório contido, espaço para descrição e caminhos claros.
 - Trabalho e serviços ganham prioridade na ordem da home; o prólogo e a narrativa permanecem disponíveis após a apresentação comercial.
 - A seção sobre autoria usa fundo lunar e a narrativa recebe tratamento visual menos fotográfico.
-- Três SVGs oficiais, sem edição dos traços: `03 Glifos/avistar.svg`, `05 Superficies/limiar-canto.svg` e `05 Superficies/talho-fundo.svg`. O último fica disponível no acervo sem uso obrigatório nesta etapa.
+- Cinco SVGs oficiais sem edição de traço: `03 Glifos/{avistar,costurar,selar}.svg` e `05 Superficies/{limiar-canto,talho-fundo}.svg`. A seleção serve à abertura e ao documento da identidade, sem transplantar esses símbolos aos projetos de clientes.
+- Cores literais do sistema visual anterior foram reconciliadas em 14 folhas de estilo pertencentes à Glifo, sem tocar em paletas específicas das identidades de clientes.
 - Gradiente do observatório e metadado da cor de navegador passam à paleta atual.
 
 ## Não alterado
@@ -38,7 +39,7 @@ Administração, API, autenticação, Durable Objects, estudos e dados do Studio
 
 ## Pendências honestas
 
-- A instalação completa do kit 2026 não foi feita. Os 194 SVGs e as assinaturas originais do ZIP não foram todos incorporados; selecionar apenas os que tiverem função real.
+- A instalação completa do kit 2026 não foi feita. Os 194 SVGs do ZIP não foram todos incorporados; selecionar apenas os que tiverem função real. Os `logo.png` e `symbol.png` já existentes no site têm os mesmos hashes Git dos PNGs aprovados enviados no kit, portanto não foi preciso substituí-los.
 - As imagens históricas da vitrine ainda precisam de curadoria com materiais atuais dos projetos, antes de serem substituídas.
 - A publicação Cloudflare e o commit atualmente servido no domínio não foram comprovados.
 - Provas visuais e aceite autoral ainda são necessários. O código modificado não equivale a entrega publicada.
