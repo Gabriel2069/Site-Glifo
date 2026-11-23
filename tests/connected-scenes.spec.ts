@@ -1,15 +1,16 @@
 import {test,expect} from '@playwright/test';
 
-test('glyph exploration returns to the current reading chapter after interaction',async({page})=>{
- await page.goto('/');const instrument=page.locator('[data-glyph-instrument]');
- await instrument.getByRole('button',{name:'03 · Leitura'}).click();
- await expect(instrument).toHaveAttribute('data-glyph-phase','2');
- await page.locator('[data-myth-stage]').evaluate(stage=>stage.setAttribute('data-phase','1'));
- await expect(instrument).toHaveAttribute('data-glyph-phase','2');
- await expect(instrument.locator('[data-glyph-follow]')).toHaveCount(0);
- await expect(instrument).toHaveAttribute('data-glyph-phase','1',{timeout:10000});
- await page.emulateMedia({reducedMotion:'reduce'});
- expect(await instrument.locator('.glyph-fragments').evaluate(e=>Number(getComputedStyle(e).opacity))).toBeCloseTo(.6);
+test('the essay links to each illustrated chapter and spaces the footer sentences',async({page})=>{
+ await page.goto('/');
+ const essay=page.locator('#origem');
+ for(const [title,id] of [['Sinais','sinais'],['Glifos','glifos'],['Grifo','grifo']]){
+  await essay.getByRole('link',{name:title,exact:true}).click();
+  await expect(page.locator('#ensaio-'+id)).toBeInViewport();
+ }
+ await expect(essay.locator('figure img')).toHaveCount(3);
+ const lines=page.locator('.lema-rodape span');
+ await expect(lines).toHaveCount(2);
+ expect(await lines.evaluateAll(([a,b])=>b.getBoundingClientRect().top-a.getBoundingClientRect().bottom)).toBeGreaterThan(5);
 });
 
 test('constellation selects real projects, pauses automatic changes and keeps direct paths',async({page})=>{
@@ -53,7 +54,7 @@ test('new scenes and case covers stay within narrow layouts and respect reduced 
  await page.setViewportSize({width:320,height:780});await page.emulateMedia({reducedMotion:'reduce'});
  for(const route of ['/','/trabalhos/tdv-editorial/','/identidades/christiano-tadeu/']){
   await page.goto(route);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
-  if(route==='/'){await page.locator('[data-glyph-phase="2"]').click();expect(await page.locator('.glyph-resolved').evaluate(e=>getComputedStyle(e).opacity)).toBe('1');}
+  if(route==='/') await expect(page.locator('.ensaio-prosa')).toHaveCount(3);
   if(route.includes('tdv')){await page.locator('[data-editorial-choice="6"]').click();expect(await page.locator('[data-editorial-sheet]:not([hidden])').evaluate(e=>getComputedStyle(e).transform)).toBe('none');}
  }
 });

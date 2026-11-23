@@ -6,9 +6,9 @@ A abertura alterna entre uma mesa de ateliê, composta a partir das aplicações
 
 ## Gravura, matéria e luz
 
-A abertura tem três enquadramentos. A matriz de latão é um estudo 3D do Perfil do Vigia, composto com as peças oficiais. A lupa amplia o ponto sob o ponteiro. A prova frontal aceita luz rasante pelo controle de faixa, pelo teclado ou pelo movimento do mouse. A mesa e a gravura conservam suas composições. Os gestos da sanfona levam à etapa correspondente do processo.
+A abertura percorre três enquadramentos automaticamente. Escolher uma vista reinicia o tempo de leitura daquela cena. A matriz de latão é um estudo 3D do Perfil do Vigia, composto com as peças oficiais. A lupa amplia o ponto sob o ponteiro. A prova frontal aceita luz rasante pelo controle de faixa, pelo teclado ou pelo movimento do mouse. A mesa e a gravura conservam suas composições. Os gestos da sanfona levam à etapa correspondente do processo.
 
-Cada vitrine apresenta peças da marca em sua própria combinação de cor. As margens do relato alternam olho, penas e cauda conforme o capítulo. O lenço de ofício encerra o contato com três segundos de movimento ao entrar na tela. A preferência por movimento reduzido mantém a imagem estática. Os estudos da matriz e do tecido são simulações digitais.
+Cada vitrine apresenta peças da marca em sua própria combinação de cor. O ensaio sobre os glifos acompanha três objetos de ateliê: uma carta celeste com compasso, tipos móveis e um caderno com o grifo estampado. As cenas editáveis estão em `artwork/ensaio` e suas imagens WebP em `public/brand/ensaio`. O lenço de ofício encerra o contato com três segundos de movimento ao entrar na tela. A preferência por movimento reduzido mantém a imagem estática. Os estudos da matriz e do tecido são simulações digitais.
 
 ## Direção
 

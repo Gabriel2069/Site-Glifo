@@ -5,31 +5,6 @@ interface ExperienceOptions {
  rotate:(root:HTMLElement|null,period:number,next:()=>void)=>void;
 }
 export function initExperience({isPaused,refresh,rotate}:ExperienceOptions){
- const stage=document.querySelector<HTMLElement>('[data-myth-stage]');
- const instrument=stage?.querySelector<HTMLElement>('[data-glyph-instrument]');
- if(stage&&instrument){
-  const buttons=Array.from(instrument.querySelectorAll<HTMLButtonElement>('[data-glyph-phase]'));
-  const paths=Array.from(instrument.querySelectorAll<SVGPathElement>('.glyph-connections path'));
-  const lengths=paths.map(path=>path.getTotalLength());
-  let manual=false,current=-1,transition:gsap.core.Timeline|undefined,returnToReading:ReturnType<typeof setTimeout>|undefined;
-  const show=(index:number)=>{
-   if(current===index)return;current=index;transition?.progress(1).kill();
-   instrument.dataset.glyphPhase=String(index);
-   buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
-   instrument.querySelector('[data-glyph-caption]')!.textContent=['Um ponto ainda não conta a figura.','A relação permite reconhecer um desenho.','Um desenho passa a carregar uma mensagem.'][index];
-   const duration=isPaused()?0:.9;
-   transition=gsap.timeline({defaults:{duration,ease:'power3.inOut'}})
-    .to(instrument.querySelector('.glyph-resolved'),{opacity:index===2?1:0,y:index===2?0:16},0)
-    .to(instrument.querySelector('.glyph-fragments'),{opacity:index===1?.6:0,y:index===1?0:12},0)
-    .to(instrument.querySelector('.glyph-dots'),{opacity:index===2?.12:1},0)
-    .to(instrument.querySelector('.glyph-coordinate-notes'),{opacity:index===0?.65:0},0)
-    .to(instrument.querySelector('.glyph-perimeter'),{opacity:index===2?.4:1},0);
-   paths.forEach((path,i)=>transition!.to(path,{strokeDasharray:lengths[i],strokeDashoffset:index===0?lengths[i]:0,opacity:index===2?.18:1},i*.07));
-  };
-  buttons.forEach((button,i)=>button.addEventListener('click',()=>{manual=true;clearTimeout(returnToReading);show(i);returnToReading=setTimeout(()=>{manual=false;show(Number(stage.dataset.phase)||0);},8000);}));
-  new MutationObserver(()=>{if(!manual)show(Number(stage.dataset.phase)||0);}).observe(stage,{attributes:true,attributeFilter:['data-phase']});
-  refresh(()=>{if(isPaused())transition?.progress(1);});show(Number(stage.dataset.phase)||0);
- }
  const cosmos=document.querySelector<HTMLElement>('[data-project-cosmos]');
  if(cosmos){
   const points=Array.from(cosmos.querySelectorAll<HTMLButtonElement>('[data-cosmos-point]'));

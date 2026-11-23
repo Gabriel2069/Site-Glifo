@@ -8,26 +8,22 @@ export function initImpression() {
  const views=field.querySelectorAll<HTMLButtonElement>('[data-vista]');
  const sheets=Array.from(field.querySelectorAll<HTMLElement>('[data-folha]'));
  const images=sheets.map(sheet=>sheet.querySelector('img')!);
- const toggle=field.querySelector<HTMLButtonElement>('[data-impressao-play]')!;
  const stage=field;
  const frames=Array.from(views);
  const duration=5.2;
- let manualPause=false;
  let visible=false;
  let firstReady=false;
  let scene:gsap.core.Timeline;
  let transition:gsap.core.Tween|undefined;
  let pending=0;
+ let waitingForImage=false;
  let index=0;
 
  function syncSequence(){
   const quiet=reduced.matches||document.documentElement.classList.contains('motion-paused');
   const examining=Boolean(stage.querySelector('.matriz-examinar:focus-visible')||document.querySelector('dialog[open]'));
-  toggle.hidden=quiet;
-  toggle.dataset.paused=String(manualPause);
-  toggle.setAttribute('aria-label',manualPause?'Retomar sequência':'Pausar sequência');
   if(quiet) transition?.progress(1);
-  const running=(firstReady||index!==0)&&visible&&!document.hidden&&!quiet&&!examining&&!manualPause;
+  const running=(firstReady||index!==0)&&visible&&!document.hidden&&!quiet&&!examining&&!waitingForImage;
   scene.paused(!running);
   if(transition&&!quiet)transition.paused(!visible||document.hidden||examining);
  }
@@ -41,7 +37,7 @@ export function initImpression() {
   frames.forEach((button,i)=>button.setAttribute('aria-pressed',String(index===i)));
   const meter=frames[next].querySelector('.tempo-cena');
   const camera=images[next];
-  scene=gsap.timeline({paused:true,defaults:{duration,ease:'none'},onComplete:()=>select((index+1)%frames.length,true)});
+  scene=gsap.timeline({paused:true,defaults:{duration,ease:'none'},onComplete:()=>select((index+1)%frames.length)});
   scene.fromTo(meter,{scaleX:0},{scaleX:1});
   if(!reduced.matches){
    const end=next===1?1:1.045;
@@ -54,24 +50,26 @@ export function initImpression() {
   }
   syncSequence();
  }
- async function select(next:number,automatic:boolean){
+ async function select(next:number){
   const request=++pending;
-  if(next===index){syncSequence();return}
+  if(next===index){waitingForImage=false;scene.restart();syncSequence();return}
+  waitingForImage=true;
+  syncSequence();
   try { await images[next].decode() }
   catch {
-   if(request===pending&&automatic)scene.restart();
+   if(request!==pending)return;
+   waitingForImage=false;
+   scene.restart();
    syncSequence();
    return;
   }
   if(request!==pending)return;
+  waitingForImage=false;
   compose(next,true);
  }
  frames.forEach((button,i)=>button.addEventListener('click',()=>{
-  manualPause=true;
-  syncSequence();
-  void select(i,false);
+  void select(i);
  }));
- toggle.addEventListener('click',()=>{manualPause=!manualPause;if(manualPause)pending++;else if(scene.progress()===1)scene.restart();syncSequence()});
  compose(0,false);
  // Give the first print its full time on screen even on a cold connection.
  images[0].decode().catch(()=>{}).then(()=>{

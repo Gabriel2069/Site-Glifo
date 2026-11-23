@@ -1,8 +1,4 @@
 .prova-seletor [data-vista] { position:relative;overflow:hidden }
-.prova-seletor [data-impressao-play] {display:grid;place-items:center;width:34px;padding:0;border-left:1px solid #eee4;border-radius:0 30px 30px 0}
-.prova-seletor [hidden] {display:none}
-[data-impressao-play] span {width:8px;height:10px;border-inline:2px solid currentColor}
-[data-impressao-play][data-paused=true] span {width:0;height:0;border:5px solid transparent;border-left:8px solid currentColor;border-right:0}
 /* Duas escalas para olhar cada caso: uma peça inteira e um recorte ampliável. */
 .case-study .plate-spread {display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:stretch;isolation:isolate;padding:clamp(20px,4vw,64px) var(--page-gutter);gap:clamp(9px,1.5vw,28px);background:linear-gradient(116deg,var(--plate-tone) 0 43%,color-mix(in srgb,var(--plate-tone),#07101a 38%) 43% 100%)}
 .case-study .case-opening .plate .project-art {width:100%;height:clamp(270px,35vw,580px);min-height:0;border:1px solid #eee2;box-shadow:0 8px 20px #0002}
