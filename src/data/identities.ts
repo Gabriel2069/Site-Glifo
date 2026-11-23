@@ -5,13 +5,17 @@ export interface IdentityBoard {
  language:{title:string;copy:string}[]; materials:IdentityMaterial[];
 }
 export const identities:IdentityBoard[]=[{
- slug:'glifo',name:'Glifo',subtitle:'A forma visível de uma mensagem',theme:'glifo',caseSlug:'glifo',hero:'/brand/logo.png',
+ slug:'glifo',name:'Glifo',subtitle:'A forma visível de uma mensagem',theme:'glifo',caseSlug:'glifo',hero:'/brand/oficio/assinatura-glifo-lunar.svg',
  intro:'O nome vem dos sinais que tornam uma mensagem legível. O céu oferece uma imagem para esse trabalho: pontos relacionados formam figuras que podemos reconhecer. O grifo é um dos glifos escolhidos para representar a marca.',
- marks:[{image:'/brand/logo.png',title:'O nome desenhado',caption:'Assinatura nominal final. A asa e a cauda aproximam o nome da figura escolhida pela marca.'},{image:'/brand/symbol.png',title:'Um glifo representativo',caption:'O grifo é o emblema da Glifo e uma das figuras de seu imaginário. Ele pode aparecer sozinho quando o nome já estiver conhecido.'}],
- colors:[{name:'Noite',hex:'#0C1020',role:'Fundo principal e áreas de leitura.'},{name:'Azul',hex:'#243A68',role:'Campos de cor e profundidade.'},{name:'Névoa',hex:'#6E86B7',role:'Detalhes frios e linhas secundárias.'},{name:'Roxo',hex:'#7042B3',role:'Atmosfera em áreas de expressão.'},{name:'Lavanda',hex:'#B28CFF',role:'Destaques e caminhos de interação.'},{name:'Cinza',hex:'#8993A7',role:'Informações de apoio.'},{name:'Luz',hex:'#E6EAF2',role:'Texto e sinais sobre o escuro.'}],
+ marks:[{image:'/brand/oficio/assinatura-glifo-lunar.svg',title:'O nome desenhado',caption:'Assinatura nominal final. A asa e a cauda aproximam o nome da figura escolhida pela marca.'},{image:'/brand/oficio/emblema-do-grifo-lunar.svg',title:'Um glifo representativo',caption:'O grifo é o emblema da Glifo e uma das figuras de seu imaginário. Ele pode aparecer sozinho quando o nome já estiver conhecido.'}],
+ colors:[{name:'Azul-tinta',hex:'#091321',role:'Fundo principal.'},{name:'Violeta',hex:'#351F53',role:'Capas e campos de expressão.'},{name:'Petróleo',hex:'#123F49',role:'Planos de apoio.'},{name:'Prata',hex:'#C5CFD2',role:'Legendas e detalhes.'},{name:'Lunar',hex:'#E8EBE9',role:'Páginas claras e assinaturas.'},{name:'Latão',hex:'#C4AA78',role:'Marcas de atenção e pequenos sinais.'}],
  types:[{name:'Almendra',sample:'O sentido de um traço.',family:'Almendra',weight:500,role:'Títulos, aberturas e passagens narrativas.'},{name:'Manrope',sample:'Identidade, páginas e materiais para aquilo que você precisa comunicar.',family:'Manrope',weight:400,role:'Texto de uso, navegação e informações do projeto.'}],
  language:[{title:'O glifo',copy:'Uma forma permite reconhecer o que alguém quis comunicar. Esse é o interesse central da Glifo: a relação entre desenho, conteúdo e leitura.'},{title:'A constelação',copy:'O céu sugere um modo de relacionar os sinais. Cada projeto pode encontrar sua figura, sem precisar repetir a assinatura ou o emblema da Glifo.'},{title:'O grifo',copy:'O encontro entre os nomes Glifo e grifo deu à marca uma figura representativa. Ela ocupa seu lugar entre outros sinais; o conceito continua mais amplo que o emblema.'}],
- materials:[{image:'/images/celestial-archive.webp',title:'Imaginário celeste',caption:'Ilustração conceitual criada para uma passagem da narrativa. Seu uso se concentra nas áreas de expressão.'}]
+ materials:[
+  {image:'/brand/oficio/portfolio.webp',title:'Abertura de portfólio',caption:'O recorte da asa ocupa o campo petróleo ao lado da assinatura.'},
+  {image:'/brand/oficio/apresentacao.webp',title:'Direção visual',caption:'O campo violeta recebe um detalhe ampliado da cauda.'},
+  {image:'/brand/oficio/lamina.webp',title:'Lâmina do bestiário',caption:'O Perfil do Vigia abre o estudo em prata e lunar.'}
+ ]
 },{
  slug:'christiano-tadeu',name:'Christiano Tadeu',subtitle:'O caminhão certo para sua operação.',theme:'ct',caseSlug:'christiano-tadeu',hero:'/identities/ct/logo-dark.webp',
  intro:'A marca tem o nome de quem atende. Sua identidade organiza essa presença em materiais comerciais, conteúdo e um site que ajuda o cliente a entender o caminhão de que precisa.',

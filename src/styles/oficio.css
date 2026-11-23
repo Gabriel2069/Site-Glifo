@@ -1,0 +1,56 @@
+.site-header, .site-header.scrolled { background:var(--night); border-bottom:1px solid var(--line) }
+.studio-opening { background:var(--night); padding:clamp(108px,12vh,160px) 0 clamp(40px,6vw,96px) }
+.studio-opening-inner { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); align-items:center }
+.studio-intro { align-self:center; padding:3rem 8% 3rem 0 }
+.studio-intro .eyebrow { color:var(--muted); letter-spacing:.19em }
+.studio-intro h1 { margin:.26em 0; color:var(--light); font:400 clamp(64px,8vw,150px)/.98 var(--serif); letter-spacing:-.055em }
+.studio-intro h1 em, .studio-language h2 em { font-style:normal; color:var(--lavender) }
+.studio-intro > p:not(.eyebrow) { max-width:35ch; font:400 clamp(15px,1.3vw,21px)/1.6 var(--sans); color:var(--muted) }
+.studio-intro .line-link { margin-top:1.65rem; color:var(--light) }
+.studio-specimen { width:100%; position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-rows:minmax(0,1fr) auto; margin:0; min-width:0; background:var(--purple); aspect-ratio:1.06 }
+.studio-specimen::before { content:''; position:absolute; inset:0; z-index:-1; background:url('/brand/oficio/nervura-modulo.svg') repeat 0 0/115px; opacity:.07 }
+.studio-specimen img { width:100%; height:100%; object-fit:contain; padding:5% 8% 2% }
+.studio-specimen figcaption { display:flex; justify-content:space-between; gap:1rem; padding:15px 5%; border-top:1px solid var(--line); font:600 11px/1.4 var(--sans); color:var(--light) }
+.studio-language { background:var(--blue); color:var(--light); padding-block:clamp(52px,8vw,120px); scroll-margin-top:80px }
+.studio-language .wrap { display:grid; grid-template-columns:1fr 1.25fr; align-items:center; gap:8% }
+.studio-language h2 { font:400 clamp(45px,5.2vw,90px)/1 var(--serif); letter-spacing:-.04em; margin:.45em 0 .3em }
+.studio-language header > p:not(.eyebrow) { max-width:42ch; line-height:1.8; color:var(--muted) }
+.studio-language figure { margin:0 }
+.studio-language figure img { display:block; width:100%; height:auto }
+.studio-language .quiet-link { margin-top:1.25rem }
+.method-sign { background:var(--light); mask:var(--sign) center/contain no-repeat; width:40px; height:40px; flex:none }
+.process-tabs button[aria-selected=true] .method-sign { background:var(--lavender) }
+.editorial-home .contact-section, .bio-page .bio-hub { background:var(--purple) }
+.identity-glifo { --board-surface:var(--night); --board-paper:var(--light); --board-muted:var(--muted); --board-line:var(--line); --board-accent:var(--lavender) }
+.oficio-signs { display:grid; grid-template-columns:repeat(6,1fr); background:var(--light); color:var(--night); padding:clamp(18px,3vw,46px); gap:16px }
+.oficio-signs figure { margin:0; text-align:center; min-width:0 }
+.oficio-signs img { width:min(100%,96px); height:auto }
+.oficio-signs figcaption { text-transform:capitalize; font:600 12px/1.5 var(--sans) }
+@media(max-width:760px){
+ .studio-opening { padding:98px 0 32px }
+ .studio-opening-inner,.studio-language .wrap { grid-template-columns:1fr; gap:28px }
+ .studio-intro { padding:0 }
+ .studio-intro h1 { font-size:clamp(56px,13vw,90px) }
+ .studio-intro .line-link { margin-top:1rem }
+ .studio-specimen { aspect-ratio:1.65 }
+ .studio-specimen figcaption { padding:9px 4% }
+ .studio-language figure { max-width:560px }
+ .oficio-signs { grid-template-columns:repeat(3,1fr) }
+}
+.archive-sheet .oficio-sheet { background:var(--night); display:grid; place-items:center }
+.archive-sheet .oficio-sheet img { width:100%; height:100%; object-fit:contain; padding:4%; transform:none }
+.archive-sheet:first-child .oficio-sheet img { width:56% }
+
+.site-header .contact-link { background:var(--purple); border-color:var(--line) }
+.site-header .contact-link:is(:hover,:focus-visible) { border-color:var(--lavender) }
+.studio-opening .studio-entry { position:static; display:block; margin:0 }
+.studio-language.invocation { max-width:none; margin:0; text-align:left }
+.studio-language .studio-observatory { background:var(--night); min-height:0; aspect-ratio:1.1; justify-content:center; align-items:center }
+.studio-observatory:after { display:none }
+.studio-observatory .griff-scene { width:88%; max-width:520px; margin:0 auto; height:auto; aspect-ratio:1 }
+.myth-stage .myth-landscape { object-position:left center }
+.myth-stage .oficio-surface { background:var(--blue) url('/brand/oficio/nervura-modulo.svg') repeat center/200px }
+.glyph-fragments .method-sign { width:20%; height:auto; aspect-ratio:1; background:var(--light) }
+@media(min-width:761px){
+ .studio-observatory .scene-controls,.studio-observatory .lens-angle { bottom:2px }
+}

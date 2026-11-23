@@ -1,5 +1,9 @@
 # Glifo
 
+## Edição de fechamento · Identidade vigente
+
+A abertura apresenta o Perfil do Vigia em violeta sobre azul-tinta. As seis cores da prancha são azul-tinta, violeta, petróleo, prata, lunar e latão. Almendra conduz os títulos e Manrope acompanha a leitura. As assinaturas, glifos e superfícies em `public/brand/oficio` vêm do kit aprovado. Os registros celestes abaixo documentam a evolução do site. A constelação interativa continua no caso Glifo.
+
 ## Direção
 
 Os glifos são o centro da marca: formas visíveis que participam da construção de sentido. As constelações oferecem uma imagem para a relação entre os sinais. O grifo é um glifo representativo, escolhido pelo jogo entre os nomes e pela figura mitológica; não resume a essência da Glifo. Universo celestial e editorial, com apresentação autoral conduzida por Gabriel Tadeu. A navegação deve demonstrar relações e cuidado, preservando leitura e acesso direto aos trabalhos.
