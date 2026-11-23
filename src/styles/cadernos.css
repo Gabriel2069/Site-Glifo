@@ -1,0 +1,111 @@
+/* Each print owns its background. Only the incoming sheet fades. */
+.cena-folha {position:absolute;inset:0;z-index:-2;visibility:hidden;overflow:hidden;pointer-events:none}
+.cena-folha[data-folha=matriz] {background:var(--blue)}
+.cena-folha[data-folha=mesa] {background:#30223d}
+.cena-folha[data-folha=gravura] {background:var(--purple)}
+.cena-folha[data-outgoing] {visibility:visible;z-index:-3}
+[data-prova=matriz] [data-folha=matriz],[data-prova=mesa] [data-folha=mesa],[data-prova=gravura] [data-folha=gravura] {visibility:visible}
+.impressao .impressao-campo[data-prova]::before {display:none}
+.impressao .cena-folha::after {content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 78% 113% at 0% 100%,#08141cd4 0%,#08141c72 38%,transparent 79%)}
+.impressao .impressao-campo[data-prova] .cena-folha :is(.matriz-cena,.mesa-cena,.impressao-garra,.impressao-orbita) {visibility:inherit;opacity:1;transition:none}
+.impressao .cena-folha .mesa-cena {inset:0;width:100%;height:100%;max-width:none;mask-image:none;object-position:50% 48%;object-fit:cover}
+.impressao .cena-folha .matriz-cena,.impressao .cena-folha .mesa-cena,.impressao .cena-folha .impressao-garra {z-index:0}
+.impressao .cena-folha .impressao-orbita {z-index:0}
+.tempo-cena {position:absolute;left:13%;bottom:3px;width:74%;height:2px;transform:scaleX(0);transform-origin:left;background:#755d3b}
+[data-vista][aria-pressed=false] .tempo-cena {visibility:hidden}
+@media(max-width:760px){
+ .impressao .cena-folha .mesa-cena {height:clamp(300px,83vw,500px);object-position:center}
+ .impressao .cena-folha .matriz-cena img,.impressao .cena-folha .mesa-cena {mask-image:linear-gradient(to top,transparent,#000 16%)}
+ .impressao .cena-folha::after {background:radial-gradient(ellipse 95% 60% at 0% 100%,#071721b0,transparent 93%)}
+}
+.whatsapp-mark {display:inline-block;flex:none;vertical-align:middle;width:24px;height:24px}
+.site-header .contact-link {background:var(--blue);color:var(--light);border:1px solid #648a86;gap:8px}
+.site-header .contact-link:hover {background:#184d50}
+.site-header .desktop-nav {border:0;border-radius:0;background:transparent}
+.site-header .desktop-nav a {border-radius:0;font-weight:600}
+.desktop-nav .navigation-glide {border-radius:0;border:0;border-bottom:2px solid var(--lavender);background:transparent}
+.site-header .menu-toggle {background:var(--light);color:var(--night);border:1px solid var(--light);font-weight:600}
+.mobile-menu[open] {padding:0;border:1px solid #bdb6a5;background:var(--night);width:min(1150px,94vw)}
+.mobile-menu .navigation-top {padding:12px clamp(20px,3vw,44px);background:var(--night)}
+.mobile-menu .navigation-layout {gap:0;padding:0;align-items:stretch}
+.navigation-routes {padding:clamp(18px,3vw,48px);background:var(--blue) url('/brand/oficio/talho-canto.svg') right -110px bottom -100px/290px no-repeat}
+.navigation-routes nav>a {grid-template-columns:40px minmax(0,1fr) 22px;gap:16px;padding:13px 0}
+.route-mark {width:38px;height:38px;object-fit:contain;filter:brightness(0) invert(.88);opacity:.82}
+.mobile-menu .navigation-layout nav strong {font-size:clamp(30px,3.6vw,57px)}
+.mobile-menu .navigation-aside {padding:clamp(20px,3vw,45px);margin:0;background:#e2ded2;color:#172c30;align-self:stretch}
+.mobile-menu .navigation-aside>.eyebrow {font:400 clamp(25px,2.8vw,43px)/1 var(--serif);text-transform:none;color:#1c3639;letter-spacing:-.02em}
+.navigation-aside>div>a {border-color:#20434444;grid-template-columns:25% minmax(0,1fr) 19px;gap:14px}
+.mobile-menu .navigation-aside img {padding:0;width:100%;height:65px;object-fit:cover;object-position:center 25%;border:0}
+.mobile-menu .navigation-aside small {color:#465450}
+.mobile-menu .navigation-contact {padding:14px 18px;background:var(--blue);color:white;border:0}
+.mobile-menu .navigation-contact>span {color:var(--light)}
+.mobile-menu .navigation-colophon {padding:14px clamp(20px,3vw,44px)}
+.site-footer.wrap {display:grid;grid-template-columns:1fr 1fr 1.3fr;max-width:none;width:100%;padding:0 var(--page-gutter) 26px;background:#102a31;gap:36px clamp(20px,5vw,80px);border-top:0;color:var(--light)}
+.footer-print {grid-column:1/-1;isolation:isolate;position:relative;display:grid;grid-template-columns:minmax(90px,1fr) minmax(0,1.7fr) .8fr;align-items:center;gap:6vw;padding:clamp(30px,5vw,78px) var(--page-gutter);margin-inline:calc(-1 * var(--page-gutter));overflow:hidden;background:#dcd9ca;color:#132b32}
+.footer-print a {width:100%;max-width:285px;position:relative}
+.footer-print .footer-logotype {width:100%;height:clamp(100px,14vw,210px);object-fit:contain;filter:brightness(0) saturate(100%)}
+.footer-print p {font:400 clamp(38px,5.2vw,86px)/.98 var(--serif);letter-spacing:-.045em;max-width:16ch;margin:0}
+.footer-print .footer-cut {position:absolute;right:-9%;bottom:-38%;width:42%;height:150%;object-fit:contain;rotate:-17deg;mix-blend-mode:multiply;z-index:-1}
+.site-footer .footer-contact {grid-column:auto}
+.site-footer .footer-colophon {grid-column:1/-1}
+.footer-colophon .footer-emblem {display:inline-block;width:29px;height:32px;object-fit:contain;vertical-align:middle;margin-right:8px}
+.site-footer nav h2,.site-footer .footer-contact h2 {font:400 clamp(22px,2vw,33px)/1.1 var(--serif);color:var(--light);text-transform:none;letter-spacing:0}
+@media(max-width:760px){
+ .site-header .contact-link {gap:5px;padding-inline:8px}
+ .header-actions .whatsapp-mark {width:20px;height:20px}
+ .mobile-menu[open] {width:calc(100% - 12px);max-height:calc(100dvh - 12px)}
+ .mobile-menu .navigation-layout {display:block}
+ .navigation-routes nav>a {grid-template-columns:30px minmax(0,1fr) 16px;padding:8px 0;gap:12px}
+ .navigation-routes .route-mark {width:26px;height:26px}
+ .mobile-menu .navigation-aside>div>a {display:grid;grid-template-columns:60px minmax(0,1fr) 15px;gap:12px}
+ .mobile-menu .navigation-aside img {height:40px}
+ .site-footer.wrap {grid-template-columns:1fr 1fr;gap:26px 20px}
+ .site-footer .footer-contact {grid-column:1/-1}
+ .footer-print {grid-template-columns:1fr 1.75fr;gap:6vw}
+ .footer-print p {font-size:clamp(29px,7vw,48px)}
+ .footer-print .footer-cut {opacity:.21;width:55%}
+}
+
+/* The open folio shows the signature alongside an actual application. */
+.brand-document-image .amostra-do-caderno {position:absolute;bottom:6%;right:4%;width:44%;height:39%;margin:0;display:grid;grid-template-rows:minmax(0,1fr) auto;padding:5px;background:#edece3;color:#1a2628;box-shadow:0 5px 15px #0004;rotate:5deg;z-index:1}
+.editorial-home .brand-document-card .amostra-do-caderno img {object-fit:cover;object-position:center 22%;width:100%;height:100%;max-width:none;max-height:none;transform:none;padding:0}
+.amostra-do-caderno figcaption,.indice-uso figcaption,.linguagem-peca figcaption {font:600 10px/1.4 var(--sans);padding:5px 3px 0}
+.brand-document-image .arquivo-pigmentos {top:4%;bottom:auto;width:35%}
+.identity-directory .indice-dupla {display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:stretch}
+.identity-directory .indice-dupla .identity-directory-art {width:100%;height:100%;min-height:0}
+.identity-directory .indice-uso {margin:0;display:grid;grid-template-rows:minmax(0,1fr) auto;background:#dcd9ca;color:#122930;min-width:0;padding:clamp(6px,1.1vw,15px);gap:4px}
+.indice-uso img {object-fit:cover;object-position:top center;width:100%;height:100%;min-height:0;aspect-ratio:2/3}
+.identity-directory .indice-uso figcaption {padding:2px 0;font-size:10px}
+.identity-directory .identity-index-item:nth-child(even) .indice-dupla {grid-template-columns:minmax(0,1fr) minmax(0,1.65fr)}
+.identity-directory .identity-index-item:nth-child(even) .indice-uso {grid-column:1;grid-row:1}
+.identity-directory .identity-index-item:nth-child(even) .identity-directory-art {grid-column:2;grid-row:1}
+.identity-board .identity-mosaic-mark {padding:0;overflow:hidden;background:var(--board-surface)}
+.identity-board .identity-mosaic-mark img {width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:50% 25%}
+.identity-board .identity-mosaic-palette {gap:0}
+.identity-board .identity-type {padding:clamp(16px,2vw,32px);border-left:4px solid var(--board-accent);background:color-mix(in srgb,var(--board-accent) 8%,var(--board-surface))}
+.identity-board .identity-type:nth-child(even) {border-left-color:var(--board-muted);background:transparent}
+.identity-board .identity-language {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 clamp(20px,4vw,60px);align-items:start}
+.identity-board .identity-language>div {padding:20px 0;border-top:1px solid var(--board-line);grid-column:2}
+.identity-board .linguagem-peca {grid-column:1;grid-row:1/span 5;min-width:0;margin:0;background:color-mix(in srgb,var(--board-accent) 14%,var(--board-surface));padding:clamp(10px,1.8vw,26px)}
+.linguagem-peca img {display:block;width:100%;height:auto;max-height:480px;object-fit:contain}
+.linguagem-peca figcaption {color:var(--board-paper);padding-top:10px}
+@media(min-width:900px){
+ .identity-board .identity-material-grid {grid-template-columns:repeat(6,minmax(0,1fr))}
+ .identity-material-grid figure {grid-column:span 3}
+ .identity-material-grid figure:first-child:nth-last-child(n+3) {grid-column:span 4}
+ .identity-material-grid figure:nth-child(2):nth-last-child(n+2) {grid-column:span 2;align-self:end}
+}
+@media(max-width:760px){
+ .identity-board .identity-language {grid-template-columns:1fr}
+ .identity-board .linguagem-peca,.identity-board .identity-language>div {grid-column:1;grid-row:auto}
+ .identity-board .linguagem-peca {margin-bottom:18px}
+ .identity-board .linguagem-peca img {max-height:280px}
+}
+.site-footer .footer-print p {color:#122e36}
+.identity-directory .identity-index-item>.indice-dupla {height:clamp(200px,24vw,370px);padding:0;place-items:stretch;border:0;overflow:hidden}
+.identity-directory .identity-index-item>.indice-tintas {display:flex;gap:0;height:9px;padding:0;border:0}
+.identity-directory .identity-index-item>.identity-directory-copy {display:block;height:auto;padding:19px 0 0;border:0;background:transparent}
+.identity-directory .indice-uso img {object-fit:cover}
+@media(max-width:760px){
+ .identity-directory .identity-index-item>.indice-dupla {height:clamp(200px,58vw,350px)}
+}

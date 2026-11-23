@@ -9,7 +9,7 @@ import {identities} from '../data/identities';
  <div class="brand-document-grid mobile-shelf" id="document-shelf" data-mobile-shelf tabindex="0" role="region" aria-label="Documentos de identidade visual">
  {identities.map((board,i)=><a class:list={['brand-document-card',`document-card-${board.theme}`]} href={`/identidades/${board.slug}/`}>
    <div class="brand-document-image"><img src={board.slug==='glifo'?'/brand/oficio/lamina.webp':board.hero} alt="" width="1360" height="1110" loading="lazy"/>
-    <div class="arquivo-pigmentos" aria-hidden="true">{board.colors.slice(0,5).map(c=><i style={`background:${c.hex}`}/>)}</div></div>
+    <figure class="amostra-do-caderno" aria-hidden="true"><img src={`/identities/amostras/${board.slug}.webp`} alt="" loading="lazy"/><figcaption>{board.materials[0].title}</figcaption></figure><div class="arquivo-pigmentos" aria-hidden="true">{board.colors.slice(0,5).map(c=><i style={`background:${c.hex}`}/>)}</div></div>
    <div class="arquivo-legenda"><small>{String(i+1).padStart(2,'0')}</small><div><h3>{board.name}</h3><p>{board.subtitle}</p></div><Icon name="arrow"/></div>
  </a>)}
  </div>
